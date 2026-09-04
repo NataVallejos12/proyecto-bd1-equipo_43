@@ -8,11 +8,11 @@ Proyecto  Final de Base de Datos 1 Comision3 Gr.43.
 
 | Nombre y Apellido | Usuario GitHub |
 |---|---|
-|       Medina Cristian David       |  |
+|       Medina Cristian David       | cristianmedinaa  |
 |Quintana Flores Lautaro Sebastian  | lautaroflores31-dot |
 |       RAMIREZ JOSE EMILIANO       | |
 |          ROMANI VALENTINO         | |
-|  VALLEJOS AQUINO NATANIEL ADRIEL  | |
+|  VALLEJOS AQUINO NATANIEL ADRIEL  | NataVAllejos12 |
 
 
 proyecto-bd1-equipo_XX/
