@@ -19,6 +19,7 @@ proyecto-bd1-equipo_XX/
 
 │
 ├── docs/
+
 │   ├── etapa-01/
 │   ├── etapa-02/
 │   ├── etapa-03/
@@ -26,12 +27,14 @@ proyecto-bd1-equipo_XX/
 │   └── etapa-05/
 │
 ├── sql/
+
 │   ├── ddl/
 │   ├── dml/
 │   ├── consultas/
 │   └── tecnico/
 │
 ├── modelos/
+
 │   └── der/
 │
 └── README.md
