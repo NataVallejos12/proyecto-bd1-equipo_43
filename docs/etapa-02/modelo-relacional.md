@@ -13,7 +13,7 @@
   * Clave Única (UQ): cod_vendedor
   * Clave Foránea (FK): dni referencias persona(dni)
 
-* Producto (cod_producto, descripción, categoría, precio_producto, nombre_producto, existencia_actual, lote)
+* Producto (cod_producto, descripción, categoría, precio_unitario, nombre_producto, existencia_actual, lote)
   * Clave Primaria (PK): cod_producto
   * Clave Única (UQ): cod_producto
 
