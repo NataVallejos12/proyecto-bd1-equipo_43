@@ -1,1 +1,51 @@
+# Decisiones de Diseño
 
+Durante el análisis del caso de estudio, el grupo 43 tomó las siguientes decisiones de diseño para el modelado de la base de datos de Farmacia Sana-Sana.
+
+### 1. Especialización de Persona
+Se optó por utilizar una **jerarquía (especialización) total y disjunta** para la entidad "Persona", con los subtipos "Cliente" y "Vendedor".
+* **Justificación:** Las reglas de negocio establecen que toda persona registrada tiene atributos comunes (DNI, nombre, apellido, correo electrónico y teléfono), pero obligatoriamente debe asumir el rol de "Cliente" o "Vendedor" (total) y bajo ninguna circunstancia puede ser ambos a la vez (disjunta) (RN.01). Además, cada subtipo tiene atributos propios: el cliente tiene código y dirección, y el vendedor tiene su código.
+
+### 2. Identificadores de Cliente y Vendedor
+Se utilizaron "cod_cliente" y "cod_vendedor" como identificadores de cada subtipo, y el DNI quedó como identificador de "Persona".
+* **Justificación:** El enunciado define a ambos códigos como identificadores propios (RN.02 y RN.04), y son los que se usan en "Venta" para registrar quién compra y quién atiende. El DNI sigue siendo único porque identifica a la persona en el supertipo.
+
+### 3. Categoría como entidad
+Se modeló "Categoría" como una entidad propia relacionada con "Producto", y no como un atributo de texto.
+* **Justificación:** El enunciado enumera algunas categorías (medicamentos, cosmética, higiene personal, dietética) pero aclara "entre otras", es decir, la lista puede crecer. Tenerla como entidad permite agregar categorías nuevas sin modificar la estructura y evita inconsistencias al escribir el mismo nombre de distintas formas.
+
+### 4. Método de pago como atributo
+El método de pago se dejó como un atributo de "Venta" con un dominio restringido (efectivo, débito, crédito o transferencia).
+* **Justificación:** A diferencia de la categoría, el enunciado da una lista cerrada de cuatro valores, y cada venta tiene un único método de pago. No hace falta una entidad aparte para un dominio fijo.
+
+### 5. Lote como entidad
+El stock se registra por "Lote" y no como un atributo "stock" dentro de "Producto".
+* **Justificación:** El enunciado exige trazabilidad de vencimientos y cada lote tiene su propia fecha de vencimiento y cantidad disponible (RN.07 y RN.11). Si el stock estuviera en "Producto", no se podría saber de qué lote se descuenta cada venta ni controlar que no se venda un lote vencido.
+
+### 6. El lote se genera en el abastecimiento
+Cada lote queda asociado a la línea de abastecimiento que lo generó, que es la que fija su fecha de vencimiento.
+* **Justificación:** Según RN.12, cada lote nace de una línea de abastecimiento. Si el detalle de abastecimiento guardara el número de lote y la fecha de vencimiento, y también lo hiciera la entidad "Lote", el mismo dato quedaría registrado dos veces. Por eso la línea de abastecimiento referencia al lote, o se fusiona con él, en lugar de repetir sus datos.
+
+### 7. Detalle de Venta referencia al lote
+Se agregó la entidad "Detalle_Venta", resultante de la relación muchos a muchos entre "Venta" y los productos vendidos, y cada línea referencia al lote del cual se descuenta la cantidad.
+* **Justificación:** RN.19 exige saber de qué lote sale cada unidad vendida. Como cada lote corresponde a un único producto (RN.11), el producto se obtiene a través del lote. Guardar también el producto en el detalle generaría una dependencia parcial (el lote ya determina el producto), lo que viola la 2FN.
+
+### 8. Histórico de precios en ventas
+Se agregó el atributo "precio_unitario" en "Detalle_Venta", además del "precio_lista" que tiene "Producto".
+* **Justificación:** El precio de los productos en las farmacias fluctúa constantemente. Al registrar el precio en el detalle al momento de la transacción, garantizamos que las consultas de ventas históricas no se alteren si el "precio_lista" del producto se actualiza (RN.17). No se trata de redundancia, porque son dos datos distintos: el precio actual y el precio al momento de la venta.
+
+### 9. Manejo de recetas médicas
+El atributo "numero_receta" fue ubicado en "Detalle_Venta" y es opcional.
+* **Justificación:** Es un atributo que solo tiene valor cuando el producto vendido requiere receta (RN.18). Dejarlo en la cabecera de "Venta" obligaría a que toda la venta sea bajo receta, cuando en realidad una misma venta puede incluir un analgésico de venta libre y un antibiótico con receta.
+
+### 10. Sin total almacenado en la venta
+No se guarda un atributo "total" en "Venta".
+* **Justificación:** El total se calcula sumando cantidad por precio unitario de cada línea del detalle. Como el precio ya queda fijo en "Detalle_Venta" (decisión 8), el total no cambia con el tiempo y almacenarlo sería un dato derivado que habría que mantener sincronizado.
+
+### 11. Reglas que se implementan en el diseño físico
+Algunas reglas de negocio se documentan en el modelo conceptual pero requerirán, en el diseño físico, la implementación de **triggers (disparadores)** o procedimientos almacenados:
+* **RN.10:** no vender productos de un lote vencido (comparar la fecha de venta con la fecha de vencimiento del lote).
+* **RN.18:** exigir el número de receta solo cuando el producto la requiere.
+* **RN.19:** descontar la cantidad vendida de la cantidad disponible del lote.
+* **RN.01:** garantizar que toda persona tenga asignado su rol de cliente o vendedor.
+* **Justificación:** A nivel de modelo Entidad-Relación solo documentamos las entidades, relaciones y atributos involucrados. La lógica de validación, que compara datos de distintas entidades, pertenece a la capa de reglas activas de la base de datos.
