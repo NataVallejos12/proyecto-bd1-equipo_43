@@ -74,7 +74,7 @@ CREATE TABLE Venta(
 
 CREATE TABLE Detalle_venta(
   cod_venta INT NOT NULL,
-  linea_venta INT IDENTITY (1,1),
+  linea_venta INT NO NULL,
   cod_producto INT NOT NULL,
   cant_comprada INT NOT NULL,
   precio_unitario DECIMAL(10, 2) NOT NULL,
