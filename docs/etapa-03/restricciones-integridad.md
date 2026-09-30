@@ -1,5 +1,12 @@
 # Restricciones de integridad – Farmacia_SanaSana
 
+Las **restricciones de integridad** son las reglas que garantizan que los datos sean válidos y consistentes:
+* **Integridad de entidad:** Dice que cada fila de una tabla tiene que poder identificarse de forma única, y para eso existe la clave primaria: no se puede repetir ni puede ser NULL (PK).
+* **Integridad referencial:** Dice que una relación entre tablas tiene que apuntar a algo que existe, y se logra con la clave foránea (FK).
+* **Unicidad:** Dice que el valor de una columna (que no es la clave primaria) no puede repetirse entre filas (UNIQUE).
+* **Dominio:** Dice qué valores son válidos para una columna (CHECK, más los tipos de dato).
+* **Obligatoriedad:** Dice que una columna no puede quedar vacía (NOT NULL).
+  
 ## 1. Integridad de entidad (claves primarias)
 | Tabla | Clave primaria | Constraint |
 |---|---|---|
