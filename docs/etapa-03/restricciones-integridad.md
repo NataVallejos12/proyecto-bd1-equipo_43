@@ -34,3 +34,24 @@
 | UQ_lote | Producto.lote |
 | UQ_telefono_proveedor | Proveedor.telefono_proveedor |
 | UQ_nro_receta | Venta.nro_receta |
+
+## 4. Restricciones de dominio (CHECK)
+
+| Constraint | Tabla | Regla |
+|---|---|---|
+| ck_producto_precio | Producto | precio_unitario > 0 |
+| ck_producto_stock | Producto | stock >= 0 |
+| ck_venta_metodo_pago | Venta | metodo_pago ∈ {Efectivo, Tarjeta de débito, Tarjeta de crédito, Transferencia, Mercado Pago, Código QR, Obra social, Cuenta corriente} |
+| ck_detalle_cantidad | Detalle_venta | cant_comprada > 0 |
+| ck_detalle_precio | Detalle_venta | precio_unitario > 0 |
+| ck_pedido_cantidad | Pedido | cantidad_entregada > 0 |
+
+## 5. Obligatoriedad (NOT NULL)
+
+Todas las columnas son **NOT NULL**, excepto Venta.nro_receta, que admite NULL.
+
+## 6. Valores automáticos
+
+| Tabla.columna | Mecanismo |
+|---|---|
+| Detalle_venta.linea_venta | IDENTITY(1,1) |
