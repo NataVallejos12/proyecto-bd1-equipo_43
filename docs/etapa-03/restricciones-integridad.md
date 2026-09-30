@@ -23,3 +23,14 @@
 | FK_DETALLE_VENTA_PRODUCTO | Detalle_venta.cod_producto | Producto.cod_producto |
 | FK_PEDIDO_PROVEEDOR | Pedido.cuit | Proveedor.cuit |
 | FK_PEDIDO_PRODUCTO | Pedido.cod_producto | Producto.cod_producto |
+
+
+## 3. Restricciones de unicidad (UNIQUE)
+
+| Constraint | Tabla.columna |
+|---|---|
+| UQ_correo | Persona.correo |
+| UQ_telefono_persona | Persona.telefono_persona |
+| UQ_lote | Producto.lote |
+| UQ_telefono_proveedor | Proveedor.telefono_proveedor |
+| UQ_nro_receta | Venta.nro_receta |
