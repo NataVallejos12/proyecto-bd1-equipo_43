@@ -83,3 +83,15 @@ CREATE TABLE Detalle_venta(
   CONSTRAINT FK_DETALLE_VENTA_VENTA FOREIGN KEY (cod_venta) REFERENCES Venta(cod_venta),
   CONSTRAINT FK_DETALLE_VENTA_PRODUCTO FOREIGN KEY (cod_producto) REFERENCES Producto(cod_producto)
 );
+
+CREATE TABLE Pedido(
+  cod_pedido INT NOT NULL,
+  fecha_pedido DATE NOT NULL,
+  cantidad_entregada INT NOT NULL,
+  cuit VARCHAR(20) NOT NULL,
+  cod_producto INT NOT NULL,
+  CONSTRAINT PK_PEDIDO PRIMARY KEY (cod_pedido),
+  CONSTRAINT ck_pedido_cantidad CHECK (cantidad_entregada > 0),
+  CONSTRAINT FK_PEDIDO_PROVEEDOR FOREIGN KEY (cuit) REFERENCES Proveedor(cuit),
+  CONSTRAINT FK_PEDIDO_PRODUCTO FOREIGN KEY (cod_producto) REFERENCES Producto(cod_producto)
+);
