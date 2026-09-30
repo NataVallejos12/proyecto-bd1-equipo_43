@@ -64,3 +64,15 @@ INSERT INTO Producto (cod_producto, nombre_producto, descripcion, categoria, pre
 (11, 'Gasas estériles 10x10', 'Sobre x 10 unidades', 'Insumos', 980.00, 149, 'L2605B'),
 (12, 'Enalapril 10 mg', 'Caja x 30 comprimidos, antihipertensivo', 'Cardiovasculares', 3900.00, 38, 'L2606A');
 GO
+
+-- PROVEEDOR (8)
+INSERT INTO proveedor (cuit, nombre, razon_social, direccion, telefono_proveedor, tipo_proveedor) VALUES
+('30712345671', 'Droguería del Norte',  'Droguería del Norte S.R.L.',   'Ruta 11 km 5, Resistencia',      '3624300001', 'Droguería'),
+('30712345682', 'FarmaLitoral',         'FarmaLitoral S.A.',            'Av. Alvear 1450, Corrientes',    '3794300002', 'Droguería'),
+('30712345693', 'Laboratorios Andina',  'Laboratorios Andina S.A.',     'Parque Industrial, Rosario',     '3414300003', 'Laboratorio'),
+('30712345704', 'BioSalud',             'BioSalud Argentina S.R.L.',    'Av. Corrientes 3200, CABA',      '1143000004', 'Laboratorio'),
+('30712345715', 'DermaCare',            'DermaCare Cosméticos S.A.',    'Av. Cabildo 2500, CABA',         '1143000005', 'Dermocosmética'),
+('30712345726', 'Insumos Médicos NEA',  'Insumos Médicos NEA S.R.L.',   'Av. Chaco 900, Resistencia',     '3624300006', 'Insumos'),
+('30712345737', 'VitaPlus',             'VitaPlus Suplementos S.A.',    'Ruta 9 km 12, Córdoba',          '3514300007', 'Suplementos'),
+('30712345748', 'Distribuidora Guaraní','Distribuidora Guaraní S.A.',   'Av. Uriburu 720, Posadas',       '3764300008', 'Droguería');
+GO
