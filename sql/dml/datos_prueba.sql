@@ -76,3 +76,17 @@ INSERT INTO proveedor (cuit, nombre, razon_social, direccion, telefono_proveedor
 ('30712345737', 'VitaPlus',             'VitaPlus Suplementos S.A.',    'Ruta 9 km 12, Córdoba',          '3514300007', 'Suplementos'),
 ('30712345748', 'Distribuidora Guaraní','Distribuidora Guaraní S.A.',   'Av. Uriburu 720, Posadas',       '3764300008', 'Droguería');
 GO
+
+-- PEDIDO (10)
+INSERT INTO Pedido (cod_pedido, fecha_pedido, cantidad_entregada, cuit, cod_producto) VALUES
+(1, '2026-08-05', 60, '30712345671', 1),
+(2, '2026-08-06', 100, '30712345671', 2),
+(3, '2026-08-12', 40, '30712345693', 3),
+(4, '2026-08-14', 50, '30712345682', 4),
+(5, '2026-08-20', 50, '30712345704', 5),
+(6, '2026-08-22', 100, '30712345726', 6),
+(7, '2026-08-25', 20, '30712345715', 7),
+(8, '2026-09-02', 60, '30712345737', 8),
+(9, '2026-09-09', 150, '30712345726', 11),
+(10, '2026-09-16', 40, '30712345748', 12);
+GO
