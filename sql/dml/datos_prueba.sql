@@ -22,3 +22,29 @@ INSERT INTO Persona (dni, nombres, apellidos, correo, telefono_persona, fecha_na
 (30222007, 'Paula', 'Medina', 'paula.medina@sanasana.com', '3624200007', '1993-03-21'),
 (30222008, 'Ramiro', 'Godoy', 'ramiro.godoy@sanasana.com', '3624200008', '1989-11-13');
 GO
+
+-- CLIENTE (10)
+INSERT INTO Cliente (dni, direccion) VALUES
+(40111001, 'Av. 25 de Mayo 1250, Resistencia'),
+(40111002, 'Juan B. Justo 340, Resistencia'),
+(40111003, 'Los Pinos 88, Barranqueras'),
+(40111004, 'Av. Sarmiento 2100, Resistencia'),
+(40111005, 'Perón 765, Resistencia'),
+(40111006, 'Güemes 412, Fontana'),
+(40111007, 'Av. Alberdi 1590, Resistencia'),
+(40111008, 'Mitre 230, Barranqueras'),
+(40111009, 'San Martín 980, Resistencia'),
+(40111010, 'Belgrano 615, Puerto Vilelas');
+GO
+
+-- VENDEDOR (8)
+INSERT INTO Vendedor (cod_vendedor, dni) VALUES
+(1, 30222001),
+(2, 30222002),
+(3, 30222003),
+(4, 30222004),
+(5, 30222005),
+(6, 30222006),
+(7, 30222007),
+(8, 30222008);
+GO
