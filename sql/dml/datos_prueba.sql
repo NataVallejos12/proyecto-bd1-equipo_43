@@ -1,7 +1,7 @@
 USE Farmacia_SanaSana;
 GO
 
--- PERSONA (18): 10 clientes + 8 vendedores
+-- PERSONA (18): 10 clientes + 8 vendedores.
 INSERT INTO Persona (dni, nombres, apellidos, correo, telefono_persona, fecha_nacimiento) VALUES
 (40111001, 'María Belén', 'Gómez', 'mbelen.gomez@mail.com', '3624100001', '1990-03-14'),
 (40111002, 'Lucas', 'Fernández', 'lucas.fernandez@mail.com', '3624100002', '1985-07-22'),
@@ -49,7 +49,7 @@ INSERT INTO Vendedor (cod_vendedor, dni) VALUES
 (8, 30222008);
 GO
 
--- PRODUCTO (12): stock = stock actual de cada producto
+-- PRODUCTO (12): stock = stock actual de cada producto.
 INSERT INTO Producto (cod_producto, nombre_producto, descripcion, categoria, precio_unitario, stock, lote) VALUES
 (1, 'Ibuprofeno 400 mg', 'Caja x 20 comprimidos, antiinflamatorio', 'Analgésicos', 2850.00, 61, 'L2601A'),
 (2, 'Paracetamol 500 mg', 'Caja x 16 comprimidos, analgésico', 'Analgésicos', 1900.00, 98, 'L2601B'),
@@ -89,4 +89,50 @@ INSERT INTO Pedido (cod_pedido, fecha_pedido, cantidad_entregada, cuit, cod_prod
 (8, '2026-09-02', 60, '30712345737', 8),
 (9, '2026-09-09', 150, '30712345726', 11),
 (10, '2026-09-16', 40, '30712345748', 12);
+GO
+
+-- VENTA (12): 12 ventas realizadas en diferentes fechas.
+INSERT INTO Venta (cod_venta, fecha_venta, metodo_pago, nro_receta, cod_vendedor, dni) VALUES
+(1, '2026-09-01', 'Efectivo', NULL, 1, 40111001),
+(2, '2026-09-02', 'Tarjeta de débito', NULL, 2, 40111002),
+(3, '2026-09-03', 'Obra social', 'REC-0001', 3, 40111009),
+(4, '2026-09-05', 'Tarjeta de crédito', NULL, 1, 40111003),
+(5, '2026-09-08', 'Mercado Pago', NULL, 4, 40111004),
+(6, '2026-09-10', 'Transferencia', 'REC-0002', 5, 40111006),
+(7, '2026-09-12', 'Efectivo', NULL, 2, 40111005),
+(8, '2026-09-15', 'Código QR', NULL, 6, 40111007),
+(9, '2026-09-17', 'Obra social', 'REC-0003', 3, 40111008),
+(10, '2026-09-20', 'Cuenta corriente', NULL, 7, 40111010),
+(11, '2026-09-24', 'Tarjeta de débito', NULL, 8, 40111001),
+(12, '2026-09-28', 'Tarjeta de crédito', 'REC-0004', 1, 40111004);
+GO
+
+-- DETALLE_VENTA (26): linea_venta cuenta desde 1 dentro de cada venta.
+INSERT INTO Detalle_venta (cod_venta, linea_venta, cod_producto, cant_comprada, precio_unitario) VALUES
+(1, 1, 2, 2, 1800.00),
+(1, 2, 6, 1, 1750.00),
+(2, 1, 1, 1, 2700.00),
+(2, 2, 11, 3, 980.00),
+(3, 1, 3, 1, 6400.00),
+(3, 2, 4, 1, 4000.00),
+(4, 1, 5, 2, 2300.00),
+(4, 2, 8, 1, 3100.00),
+(5, 1, 7, 1, 9800.00),
+(5, 2, 6, 2, 1750.00),
+(6, 1, 12, 2, 3800.00),
+(6, 2, 2, 1, 1900.00),
+(7, 1, 9, 1, 3500.00),
+(7, 2, 8, 2, 3100.00),
+(8, 1, 10, 1, 5200.00),
+(8, 2, 11, 2, 980.00),
+(9, 1, 3, 2, 6200.00),
+(9, 2, 1, 1, 2850.00),
+(9, 3, 4, 1, 4200.00),
+(10, 1, 2, 3, 1900.00),
+(10, 2, 5, 1, 2300.00),
+(11, 1, 7, 1, 9800.00),
+(11, 2, 8, 1, 3100.00),
+(12, 1, 12, 1, 3900.00),
+(12, 2, 4, 2, 4200.00),
+(12, 3, 9, 1, 3650.00);
 GO
