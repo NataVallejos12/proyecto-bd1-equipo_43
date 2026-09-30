@@ -27,8 +27,8 @@ proyecto-bd1-equipo_43/
 │   │  ├── [Modelo Relacional](docs/etapa-02/modelo-relacional.md)<br>
 │   │  ├── [Normalización](docs/etapa-02/normalizacion.md)<br>
 │   ├── etapa-03/<br>
-│   │  ├──Script DDL<br>
-│   │  ├──Script DML <br>
+│   │  ├──[Script DDL](sql/ddl/crear_bd.sql)<br>
+│   │  ├──[Script DML](sql/dml/datos_prueba.sql) <br>
 │   ├── etapa-04/<br>
 │   │  ├── Factura/Comprobante<br>
 │   │  ├── Reporte Agregado<br>
