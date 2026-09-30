@@ -48,3 +48,19 @@ INSERT INTO Vendedor (cod_vendedor, dni) VALUES
 (7, 30222007),
 (8, 30222008);
 GO
+
+-- PRODUCTO (12): stock = stock actual de cada producto
+INSERT INTO Producto (cod_producto, nombre_producto, descripcion, categoria, precio_unitario, stock, lote) VALUES
+(1, 'Ibuprofeno 400 mg', 'Caja x 20 comprimidos, antiinflamatorio', 'Analgésicos', 2850.00, 61, 'L2601A'),
+(2, 'Paracetamol 500 mg', 'Caja x 16 comprimidos, analgésico', 'Analgésicos', 1900.00, 98, 'L2601B'),
+(3, 'Amoxicilina 500 mg', 'Caja x 21 cápsulas, antibiótico', 'Antibióticos', 6400.00, 39, 'L2602A'),
+(4, 'Omeprazol 20 mg', 'Caja x 28 cápsulas, protector gástrico', 'Digestivos', 4200.00, 47, 'L2602B'),
+(5, 'Loratadina 10 mg', 'Caja x 10 comprimidos, antialérgico', 'Antialérgicos', 2300.00, 51, 'L2603A'),
+(6, 'Alcohol en gel 250 ml', 'Antiséptico de manos', 'Higiene', 1750.00, 97, 'L2603B'),
+(7, 'Protector solar FPS 50', 'Crema facial y corporal 120 ml', 'Dermocosmética', 9800.00, 21, 'L2604A'),
+(8, 'Vitamina C 1 g', 'Tubo x 10 comprimidos efervescentes', 'Suplementos', 3100.00, 58, 'L2604B'),
+(9, 'Jarabe para la tos', 'Frasco 120 ml, expectorante', 'Respiratorios', 3650.00, 68, 'L2605A'),
+(10, 'Termómetro digital', 'Termómetro clínico con estuche', 'Insumos', 5200.00, 34, 'L2605C'),
+(11, 'Gasas estériles 10x10', 'Sobre x 10 unidades', 'Insumos', 980.00, 149, 'L2605B'),
+(12, 'Enalapril 10 mg', 'Caja x 30 comprimidos, antihipertensivo', 'Cardiovasculares', 3900.00, 38, 'L2606A');
+GO
