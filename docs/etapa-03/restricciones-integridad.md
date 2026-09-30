@@ -49,9 +49,3 @@
 ## 5. Obligatoriedad (NOT NULL)
 
 Todas las columnas son **NOT NULL**, excepto Venta.nro_receta, que admite NULL.
-
-## 6. Valores automáticos
-
-| Tabla.columna | Mecanismo |
-|---|---|
-| Detalle_venta.linea_venta | IDENTITY(1,1) |
