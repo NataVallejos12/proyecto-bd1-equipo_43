@@ -29,7 +29,7 @@
     * dni referencias cliente(dni)
 
 * Detalle_venta (cod_venta, cod_producto, cant_comprada, subtotal, precio_unitario)
-  * Clave Primaria (PK): cod_venta, cod_producto
+  * Clave Primaria (PK): linea_venta, cod_producto
   * Claves Foráneas (FK):
     * cod_venta referencias venta(cod_venta)
     * cod_producto referencias producto(cod_producto)
