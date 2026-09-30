@@ -52,6 +52,7 @@ CREATE TABLE Vendedor(
   cod_vendedor INT NOT NULL,
   dni INT NOT NULL,
   CONSTRAINT PK_VENDEDOR PRIMARY KEY (cod_vendedor),
+  CONSTRAINT UQ_vendedor_dni UNIQUE (dni),
   CONSTRAINT FK_VENDEDOR_PERSONA FOREIGN KEY (dni) REFERENCES Persona(dni)
 );
 
