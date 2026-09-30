@@ -55,3 +55,18 @@ CREATE TABLE Vendedor(
   CONSTRAINT FK_VENDEDOR_PERSONA FOREIGN KEY (dni) REFERENCES Persona(dni)
 );
 
+CREATE TABLE Venta(
+  cod_venta INT NOT NULL,
+  fecha_venta DATE NOT NULL,
+  metodo_pago VARCHAR(50) NOT NULL,
+  nro_receta VARCHAR(50) NULL, 
+  cod_vendedor INT NOT NULL,
+  dni INT NOT NULL,
+  CONSTRAINT PK_VENTA PRIMARY KEY (cod_venta),
+  CONSTRAINT UQ_nro_receta UNIQUE (nro_receta),
+  CONSTRAINT ck_venta_metodo_pago CHECK (metodo_pago IN (
+        'Efectivo', 'Tarjeta de débito', 'Tarjeta de crédito', 'Transferencia',
+        'Mercado Pago', 'Código QR', 'Obra social', 'Cuenta corriente')),
+  CONSTRAINT FK_VENTA_VENDEDOR FOREIGN KEY (cod_vendedor) REFERENCES Vendedor(cod_vendedor),
+  CONSTRAINT FK_VENTA_CLIENTE FOREIGN KEY (dni) REFERENCES Cliente(dni)
+);
