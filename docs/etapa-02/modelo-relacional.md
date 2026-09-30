@@ -2,6 +2,7 @@
 
 * Persona (dni, nombre/s, apellido/s, correo, teléfono_persona, fecha_nacimiento)
   * Clave Primaria (PK): dni
+  * Claves Únicas (UQ): correo, teléfono_persona
 
 * Cliente (dni, dirección)
   * Clave Primaria (PK): dni
@@ -13,12 +14,15 @@
 
 * Producto (cod_producto, descripción, categoría, precio_unitario, nombre_producto, stock, lote)
   * Clave Primaria (PK): cod_producto
+  * Clave Única (UQ): lote
 
 * Proveedor (cuit, nombre, dirección, teléfono_proveedor, razón_social, tipo_proveedor)
   * Clave Primaria (PK): cuit
+  * Clave Única (UQ): teléfono_proveedor
 
-* Venta (cod_venta, fecha_venta, metodo_pago, nro_receta (O), cod_vendedor, dnii)
+* Venta (cod_venta, fecha_venta, metodo_pago, nro_receta (O), cod_vendedor, dni)
   * Clave Primaria (PK): cod_venta
+  * Clave Única (UQ): nro_receta
   * Claves Foráneas (FK):
     * cod_vendedor referencias vendedor(cod_vendedor)
     * dni referencias cliente(dni)
