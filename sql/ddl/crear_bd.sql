@@ -70,3 +70,16 @@ CREATE TABLE Venta(
   CONSTRAINT FK_VENTA_VENDEDOR FOREIGN KEY (cod_vendedor) REFERENCES Vendedor(cod_vendedor),
   CONSTRAINT FK_VENTA_CLIENTE FOREIGN KEY (dni) REFERENCES Cliente(dni)
 );
+
+CREATE TABLE Detalle_venta(
+  cod_venta INT NOT NULL,
+  linea_venta INT IDENTITY (1,1),
+  cod_producto INT NOT NULL,
+  cant_comprada INT NOT NULL,
+  precio_unitario DECIMAL(10, 2) NOT NULL,
+  CONSTRAINT PK_DETALLE_VENTA PRIMARY KEY (cod_venta, linea_venta),
+  CONSTRAINT ck_detalle_cantidad CHECK (cant_comprada > 0),
+  CONSTRAINT ck_detalle_precio   CHECK (precio_unitario > 0),
+  CONSTRAINT FK_DETALLE_VENTA_VENTA FOREIGN KEY (cod_venta) REFERENCES Venta(cod_venta),
+  CONSTRAINT FK_DETALLE_VENTA_PRODUCTO FOREIGN KEY (cod_producto) REFERENCES Producto(cod_producto)
+);
