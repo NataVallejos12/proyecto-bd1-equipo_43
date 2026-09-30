@@ -29,3 +29,14 @@ CREATE TABLE Producto(
   CONSTRAINT ck_producto_precio CHECK (precio_unitario > 0),
   CONSTRAINT ck_producto_stock  CHECK (stock >= 0)
 );
+
+CREATE TABLE Proveedor(
+  cuit VARCHAR(20) NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  direccion VARCHAR(200) NOT NULL,
+  telefono_proveedor VARCHAR(20) NOT NULL,
+  razon_social VARCHAR(100) NOT NULL,
+  tipo_proveedor VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_PROVEEDOR PRIMARY KEY (cuit),
+  CONSTRAINT UQ_telefono_proveedor UNIQUE (telefono_proveedor)
+);
