@@ -137,3 +137,46 @@ INSERT INTO Detalle_venta (cod_venta, linea_venta, cod_producto, cant_comprada, 
 (12, 2, 4, 2, 4200.00),
 (12, 3, 9, 1, 3650.00);
 GO
+
+Pruebas de restricciones (todas deben fallar)
+
+-- 1. Método de pago inválido
+INSERT INTO Venta (cod_venta, fecha_venta, metodo_pago, cod_vendedor, dni)
+VALUES (99, '2026-09-30', 'Bitcoin', 1, 40111001);
+
+-- 2. Lote repetido
+INSERT INTO Producto (cod_producto, descripcion, categoria, precio_unitario, nombre_producto, stock, lote)
+VALUES (99, 'x', 'y', 1, 'x', 1, 'L2601A');
+
+-- 3. Número de receta repetido
+INSERT INTO Venta (cod_venta, fecha_venta, metodo_pago, nro_receta, cod_vendedor, dni)
+VALUES (99, '2026-09-30', 'Efectivo', 'REC-0001', 1, 40111001);
+
+-- 4. Producto inexistente en el detalle
+INSERT INTO Detalle_venta (cod_venta, linea_venta, cod_producto, cant_comprada, precio_unitario)
+VALUES (1, 9, 999, 1, 10);
+
+-- 5. Número de línea repetido dentro de la misma venta
+INSERT INTO Detalle_venta (cod_venta, linea_venta, cod_producto, cant_comprada, precio_unitario)
+VALUES (1, 1, 3, 1, 100);
+
+-- 6. Persona cargada dos veces como vendedor
+INSERT INTO Vendedor (cod_vendedor, dni) VALUES (99, 30222001);
+
+-- 7. Stock negativo
+UPDATE Producto SET stock = -1 WHERE cod_producto = 1;
+
+-- 8. Borrar un cliente que tiene ventas
+DELETE FROM Cliente WHERE dni = 40111001;
+```
+
+| Prueba | Restricción | Resultado esperado |
+|---|---|---|
+| 1 | ck_venta_metodo_pago | Conflicto con la restricción CHECK |
+| 2 | UQ_lote | Violación de la restricción UNIQUE KEY |
+| 3 | UQ_nro_receta | Violación de la restricción UNIQUE KEY |
+| 4 | FK_DETALLE_VENTA_PRODUCTO | Conflicto con la restricción FOREIGN KEY |
+| 5 | PK_DETALLE_VENTA | Violación de la restricción PRIMARY KEY |
+| 6 | UQ_vendedor_dni | Violación de la restricción UNIQUE KEY |
+| 7 | ck_producto_stock | Conflicto con la restricción CHECK |
+| 8 | FK_VENTA_CLIENTE | Conflicto con la restricción REFERENCE |
