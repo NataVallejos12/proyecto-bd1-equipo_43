@@ -156,3 +156,49 @@ GROUP BY
     pr.stock
 ORDER BY pr.cod_producto ASC;
 GO
+/*
+=========================================================================
+-- CONSULTA AVANZADA 3D: Ranking de Vendedores con Subconsulta Escalar en SELECT
+-- (JOIN de 4 tablas + Subconsulta Escalar en la cláusula SELECT)
+-- Objetivo: Mostrar la facturación total de cada vendedor junto con el 
+-- promedio global de facturación por vendedor y la diferencia individual.
+=========================================================================
+*/
+SELECT 
+    vend.cod_vendedor                                           AS [Cod_Vendedor],
+    p_vend.apellidos + ', ' + p_vend.nombres                    AS [Vendedor],
+    COUNT(DISTINCT v.cod_venta)                                 AS [Ventas_Atendidas],
+    SUM(dv.cant_comprada)                                       AS [Unidades_Vendidas],
+    ROUND(SUM(dv.cant_comprada * dv.precio_unitario), 2)        AS [Facturacion_Total],
+
+    -- Subconsulta Escalar en el SELECT para obtener la facturación promedio global por vendedor
+    ROUND((
+        SELECT SUM(dv_sub.cant_comprada * dv_sub.precio_unitario) / COUNT(DISTINCT v_sub.cod_vendedor)
+        FROM Venta AS v_sub
+        INNER JOIN Detalle_venta AS dv_sub 
+            ON v_sub.cod_venta = dv_sub.cod_venta
+    ), 2)                                                       AS [Promedio_Facturacion_Vendedores],
+
+    -- Cálculo de desviación con respecto al promedio
+    ROUND(SUM(dv.cant_comprada * dv.precio_unitario) - (
+        SELECT SUM(dv_sub.cant_comprada * dv_sub.precio_unitario) / COUNT(DISTINCT v_sub.cod_vendedor)
+        FROM Venta AS v_sub
+        INNER JOIN Detalle_venta AS dv_sub 
+            ON v_sub.cod_venta = dv_sub.cod_venta
+    ), 2)                                                       AS [Diferencia_vs_Promedio]
+
+FROM Vendedor AS vend
+INNER JOIN Persona AS p_vend 
+    ON vend.dni = p_vend.dni
+INNER JOIN Venta AS v 
+    ON vend.cod_vendedor = v.cod_vendedor
+INNER JOIN Detalle_venta AS dv 
+    ON v.cod_venta = dv.cod_venta
+GROUP BY 
+    vend.cod_vendedor,
+    p_vend.apellidos,
+    p_vend.nombres
+ORDER BY [Facturacion_Total] DESC;
+GO
+
+
