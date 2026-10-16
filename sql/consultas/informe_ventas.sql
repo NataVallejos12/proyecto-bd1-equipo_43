@@ -1,8 +1,8 @@
 # Proyecto:Farmacia Sana_Sana (Equipo 43)
 **Etapa IV** : Consultas y Casos de Uso
-**Archivo ** : sql/consultasa/informe_ventas.sql
+**Archivo ** : sql/consultas/informe_ventas.sql
 **Objetivo:** : Reporte agregado del total de  ventas realizadas por cada vendedor y por cada categoría de producto en un rango de fechas ( GROUP BY, SUM , COUNT , AVG .MIN ,MAX Y CASE ).
---
+  
   =========================================================================
 --REPORTE AGREGADO 2A: Total de Ventas por Vendedor en Rango de Fechas
 -- Combina Vendedor, Persona, Venta y Detalle_venta. Filtra el período con
