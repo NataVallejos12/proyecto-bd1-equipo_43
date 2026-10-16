@@ -71,7 +71,7 @@ INNER JOIN Detalle_venta AS dv
     ON v.cod_venta = dv.cod_venta
 INNER JOIN Producto AS pr 
     ON dv.cod_producto = pr.cod_producto
-WHERE v.cod_venta IN (4,9)
+WHERE v.cod_venta IN (9)
 ORDER BY v.cod_venta ASC ;
 GO
 
