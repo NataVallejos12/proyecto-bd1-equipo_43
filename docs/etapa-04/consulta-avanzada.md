@@ -21,3 +21,23 @@ Este documento detalla las consultas avanzadas desarrolladas para resolver reque
 * **Necesidad de información:** Detectar de forma temprana aquellos productos que se están vendiendo pero que no tienen ningún pedido de abastecimiento registrado en el sistema, lo que representa un riesgo inminente de quiebre de stock.
 * **Estrategia SQL utilizada:** Combina 3 tablas agrupadas y aplica una subconsulta correlacionada en el `WHERE` utilizando el operador `NOT EXISTS` para excluir a aquellos productos que tengan presencia en la tabla de pedidos.
 * **Resultado esperado:** Un reporte de alerta con el código, producto, categoría, lote, stock remanente, las unidades que se vendieron sin tener reposición y el monto facturado, para tomar acción de compra inmediata.
+
+  ## Consulta 3D: Ranking de Vendedores vs Promedio Global
+* *Necesidad de información:* Evaluar el rendimiento individual del personal de ventas, contrastando lo que facturó cada vendedor contra la facturación promedio de todos los vendedores de la farmacia.
+* *Estrategia SQL utilizada:* Hace un JOIN de 4 tablas. Su principal particularidad es el uso de Subconsultas Escalares directamente en la cláusula SELECT para inyectar un valor agregado global (el promedio por vendedor) en cada fila del resultado, permitiendo realizar operaciones matemáticas (restas) para calcular desviaciones.
+* *Resultado esperado:* El ranking de empleados mostrando código, nombre, cantidad de ventas, unidades, su facturación total, el promedio global esperado y la diferencia (positiva o negativa) respecto a ese promedio.
+
+## Consulta 3E: Pedidos a Proveedores de Alto Valor
+* *Necesidad de información:* Identificar las órdenes de compra (pedidos) realizadas a proveedores cuyo impacto financiero supera el valor monetario promedio de un pedido normal, con el fin de auditar grandes erogaciones.
+* *Estrategia SQL utilizada:* Relaciona Pedido, Proveedor y Producto. En el WHERE realiza una operación aritmética (cantidad * precio) y la compara mediante el operador > contra una Subconsulta Escalar que calcula el valor económico promedio de la totalidad de los pedidos registrados.
+* *Resultado esperado:* El detalle de las órdenes de alto valor indicando número de pedido, fecha, razón social del proveedor, tipo, producto solicitado, cantidad y el monto total en dinero que implicó esa orden.
+
+## Consulta 3F: Clientes Fidelizados por Categoría (División Relacional)
+* *Necesidad de información:* Encontrar clientes "fanáticos" o altamente fidelizados que hayan adquirido absolutamente todos los productos existentes dentro de una categoría específica del catálogo (por ejemplo, 'Analgésicos').
+* *Estrategia SQL utilizada:* Implementa el patrón clásico de "División Relacional" utilizando una doble negación. En la cláusula WHERE de la consulta principal (sobre Cliente) se anida un NOT EXISTS que busca productos de la categoría deseada, el cual a su vez contiene otro NOT EXISTS que evalúa si el cliente no compró ese producto. Si no existe ningún producto que no haya comprado, significa que los compró todos.
+* *Resultado esperado:* Un padrón exclusivo con el DNI, apellido, nombres y dirección de los clientes que cumplen esta estricta condición de compra exhaustiva.
+
+## Consulta 3G: Análisis de Rendimiento de Métodos de Pago
+* *Necesidad de información:* Analizar la preferencia de financiación y pagos digitales, identificando qué métodos de pago han logrado una recaudación total superior a la que se genera de manera tradicional mediante 'Efectivo'.
+* *Estrategia SQL utilizada:* Agrupa (GROUP BY) los datos provenientes del JOIN de 3 tablas por el campo metodo_pago. Aplica un filtro post-agrupamiento (HAVING) que compara el total recaudado del grupo contra una Subconsulta Escalar que calcula y aísla específicamente el monto total recaudado solo por el método 'Efectivo'.
+* *Resultado esperado:* Los métodos de pago que superan al efectivo, mostrando el nombre del método, la cantidad de operaciones, cuántos vendedores distintos lo cobraron y el total recaudado.
