@@ -91,4 +91,68 @@ WHERE pr.categoria IN (
 ORDER BY pr.categoria ASC, v.cod_venta ASC;
 GO
 
+-- =========================================================================
+-- CONSULTA AVANZADA 3C: Auditoría de Reposición de Productos Vendidos
+-- (JOIN de 3 tablas + Subconsulta Correlacionada con EXISTS y NOT EXISTS)
+-- Objetivo 1 (EXISTS): Listar los productos vendidos que registran al menos
+-- un pedido de reposición emitido a un proveedor.
+-- Objetivo 2 (NOT EXISTS): Detectar productos comercializados que NO poseen
+-- ningún pedido de reposición cargado en la tabla Pedido (alerta de stock).
+-- =========================================================================
 
+-- 3C.1: Productos vendidos CON respaldo de pedido a proveedor (EXISTS)
+SELECT 
+    pr.cod_producto                                             AS [Cod_Producto],
+    pr.nombre_producto                                          AS [Producto],
+    pr.categoria                                                AS [Categoria],
+    pr.stock                                                    AS [Stock_Actual],
+    COUNT(DISTINCT v.cod_venta)                                 AS [Ventas_Participadas],
+    SUM(dv.cant_comprada)                                       AS [Unidades_Despachadas],
+    ROUND(SUM(dv.cant_comprada * dv.precio_unitario), 2)        AS [Ingresos_Generados]
+FROM Producto AS pr
+INNER JOIN Detalle_venta AS dv 
+    ON pr.cod_producto = dv.cod_producto
+INNER JOIN Venta AS v 
+    ON dv.cod_venta = v.cod_venta
+WHERE EXISTS (
+    SELECT *
+    FROM Pedido AS ped
+    INNER JOIN Proveedor AS prov 
+        ON ped.cuit = prov.cuit
+    WHERE ped.cod_producto = pr.cod_producto
+)
+GROUP BY 
+    pr.cod_producto,
+    pr.nombre_producto,
+    pr.categoria,
+    pr.stock
+ORDER BY [Unidades_Despachadas] DESC;
+GO
+
+-- 3C.2: Alerta de productos vendidos SIN pedidos de reposición (NOT EXISTS)
+SELECT 
+    pr.cod_producto                                             AS [Cod_Producto],
+    pr.nombre_producto                                          AS [Producto],
+    pr.categoria                                                AS [Categoria],
+    pr.lote                                                     AS [Lote_Actual],
+    pr.stock                                                    AS [Stock_Remanente],
+    SUM(dv.cant_comprada)                                       AS [Unidades_Vendidas_Sin_Reposicion],
+    ROUND(SUM(dv.cant_comprada * dv.precio_unitario), 2)        AS [Monto_Vendido]
+FROM Producto AS pr
+INNER JOIN Detalle_venta AS dv 
+    ON pr.cod_producto = dv.cod_producto
+INNER JOIN Venta AS v 
+    ON dv.cod_venta = v.cod_venta
+WHERE NOT EXISTS (
+    SELECT *
+    FROM Pedido AS ped
+    WHERE ped.cod_producto = pr.cod_producto
+)
+GROUP BY 
+    pr.cod_producto,
+    pr.nombre_producto,
+    pr.categoria,
+    pr.lote,
+    pr.stock
+ORDER BY pr.cod_producto ASC;
+GO
