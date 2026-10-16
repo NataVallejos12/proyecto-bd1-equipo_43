@@ -52,3 +52,43 @@ HAVING SUM(dv.cant_comprada * dv.precio_unitario) > (
 )
 ORDER BY [Gasto_Total_Acumulado] DESC;
 GO
+/*
+=========================================================================
+-- CONSULTA AVANZADA 3B: Trazabilidad de Ventas en las 2 Categorías Líderes
+-- (JOIN de 5 tablas + Subconsulta Multi-registro con operador IN y TOP 2)
+-- Objetivo: Mostrar las ventas detalladas de aquellos productos que integran
+-- las 2 categorías con mayor cantidad de unidades vendidas (Analgésicos e Insumos).
+ =========================================================================
+*/
+SELECT 
+    v.cod_venta                                                 AS [Comprobante],
+    v.fecha_venta                                               AS [Fecha],
+    p_cli.apellidos + ', ' + p_cli.nombres                      AS [Cliente],
+    pr.cod_producto                                             AS [Cod_Producto],
+    pr.nombre_producto                                          AS [Producto],
+    pr.categoria                                                AS [Categoria_Lider],
+    dv.cant_comprada                                            AS [Unidades],
+    dv.precio_unitario                                          AS [Precio_Unitario],
+    ROUND(dv.cant_comprada * dv.precio_unitario, 2)             AS [Subtotal]
+FROM Venta AS v
+INNER JOIN Cliente AS c 
+    ON v.dni = c.dni
+INNER JOIN Persona AS p_cli 
+    ON c.dni = p_cli.dni
+INNER JOIN Detalle_venta AS dv 
+    ON v.cod_venta = dv.cod_venta
+INNER JOIN Producto AS pr 
+    ON dv.cod_producto = pr.cod_producto
+WHERE pr.categoria IN (
+    -- Subconsulta Multi-registro con operador de conjuntos IN y cláusula TOP
+    SELECT TOP 2 pr_sub.categoria
+    FROM Detalle_venta AS dv_sub
+    INNER JOIN Producto AS pr_sub 
+        ON dv_sub.cod_producto = pr_sub.cod_producto
+    GROUP BY pr_sub.categoria
+    ORDER BY SUM(dv_sub.cant_comprada) DESC
+)
+ORDER BY pr.categoria ASC, v.cod_venta ASC;
+GO
+
+
