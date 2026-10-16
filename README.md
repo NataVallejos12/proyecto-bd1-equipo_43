@@ -41,11 +41,9 @@ proyecto-bd1-equipo_43/
 │<br>
 ├── sql/<br>
 │   ├── ddl/<br>
+│   ├──── [Crear BD](sql/ddl/crear_bd.sql)<br>
 │   ├── dml/<br>
-│   ├── consultas/<br>
+│   ├────[Datos de Prueba](sql/dml/datos_prueba.sql)<br>
 │   └── tecnico/<br>
-│<br>
-├── modelos/<br>
-│   └── der/<br>
 │<br>
 └── README.md
