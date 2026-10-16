@@ -64,7 +64,6 @@ CREATE TABLE Venta(
   cod_vendedor INT NOT NULL,
   dni INT NOT NULL,
   CONSTRAINT PK_VENTA PRIMARY KEY (cod_venta),
-  CONSTRAINT UQ_nro_receta UNIQUE (nro_receta),
   CONSTRAINT ck_venta_metodo_pago CHECK (metodo_pago IN (
         'Efectivo', 'Tarjeta de débito', 'Tarjeta de crédito', 'Transferencia',
         'Mercado Pago', 'Código QR', 'Obra social', 'Cuenta corriente')),
