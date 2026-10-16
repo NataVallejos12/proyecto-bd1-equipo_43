@@ -18,6 +18,7 @@ Objetivo: Identificar a los clientes cuyo gasto acumulado supera el
 importe promedio por venta de toda la farmacia ($10.420,83).
 ====================================================================
 */
+   
 
 SELECT 
     c.dni                                                       AS [DNI_Cliente],
@@ -52,6 +53,8 @@ HAVING SUM(dv.cant_comprada * dv.precio_unitario) > (
 )
 ORDER BY [Gasto_Total_Acumulado] DESC;
 GO
+
+   
 /*
 =========================================================================
 -- CONSULTA AVANZADA 3B: Trazabilidad de Ventas en las 2 Categorías Líderes
@@ -90,6 +93,7 @@ WHERE pr.categoria IN (
 )
 ORDER BY pr.categoria ASC, v.cod_venta ASC;
 GO
+   
 
 -- =========================================================================
 -- CONSULTA AVANZADA 3C: Auditoría de Reposición de Productos Vendidos
@@ -156,6 +160,8 @@ GROUP BY
     pr.stock
 ORDER BY pr.cod_producto ASC;
 GO
+
+   
 /*
 =========================================================================
 -- CONSULTA AVANZADA 3D: Ranking de Vendedores con Subconsulta Escalar en SELECT
@@ -201,4 +207,64 @@ GROUP BY
 ORDER BY [Facturacion_Total] DESC;
 GO
 
+   
+-- =========================================================================
+-- CONSULTA AVANZADA 3E: Pedidos a Proveedores que superan el Monto Promedio
+-- (JOIN de 3 tablas + Subconsulta Escalar en cláusula WHERE)
+-- Objetivo: Identificar los pedidos de reposición cuyo valor económico 
+-- (cantidad entregada * precio de referencia) supera el monto promedio 
+-- de todos los pedidos registrados en la farmacia.
+-- =========================================================================
+SELECT 
+    ped.cod_pedido                                              AS [Nro_Pedido],
+    ped.fecha_pedido                                            AS [Fecha_Solicitud],
+    prov.razon_social                                           AS [Proveedor],
+    prov.tipo_proveedor                                         AS [Tipo],
+    pr.nombre_producto                                          AS [Producto_Abastecido],
+    ped.cantidad_entregada                                      AS [Cantidad],
+    ROUND(ped.cantidad_entregada * pr.precio_unitario, 2)       AS [Monto_Total_Pedido]
+FROM Pedido AS ped
+INNER JOIN Proveedor AS prov 
+    ON ped.cuit = prov.cuit
+INNER JOIN Producto AS pr 
+    ON ped.cod_producto = pr.cod_producto
+WHERE (ped.cantidad_entregada * pr.precio_unitario) > (
+    -- Subconsulta Escalar: Calcula el valor promedio general de los pedidos
+    SELECT AVG(ped_sub.cantidad_entregada * pr_sub.precio_unitario)
+    FROM Pedido AS ped_sub
+    INNER JOIN Producto AS pr_sub 
+        ON ped_sub.cod_producto = pr_sub.cod_producto
+)
+ORDER BY [Monto_Total_Pedido] DESC;
+GO
 
+
+-- =========================================================================
+-- CONSULTA AVANZADA 3F: División Relacional - Clientes Fidelizados (Doble NOT EXISTS)
+-- (JOIN de 3 tablas + Subconsulta Correlacionada Anidada con Doble NOT EXISTS)
+-- Objetivo: Detectar a los clientes que han comprado TODOS los productos
+-- existentes dentro de una categoría específica (ejemplo: 'Analgésicos').
+-- =========================================================================
+SELECT 
+    c.dni                                                       AS [DNI_Cliente],
+    p_cli.apellidos + ', ' + p_cli.nombres                      AS [Cliente_Fiel],
+    c.direccion                                                 AS [Direccion]
+FROM Cliente AS c
+INNER JOIN Persona AS p_cli 
+    ON c.dni = p_cli.dni
+WHERE NOT EXISTS (
+    -- Productos de la categoría 'Analgésicos' que NO fueron comprados por el cliente
+    SELECT pr.cod_producto
+    FROM Producto AS pr
+    WHERE pr.categoria = 'Analgésicos'
+      AND NOT EXISTS (
+        -- Registro de compra del cliente para dicho producto
+        SELECT 1
+        FROM Venta AS v
+        INNER JOIN Detalle_venta AS dv 
+            ON v.cod_venta = dv.cod_venta
+        WHERE v.dni = c.dni
+          AND dv.cod_producto = pr.cod_producto
+    )
+);
+GO
