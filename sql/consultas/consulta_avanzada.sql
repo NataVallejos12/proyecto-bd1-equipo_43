@@ -268,3 +268,33 @@ WHERE NOT EXISTS (
     )
 );
 GO
+/*
+=========================================================================
+-- CONSULTA AVANZADA 3G: Métodos de pago que superan al Efectivo
+-- (JOIN de 3 tablas + GROUP BY + HAVING con Subconsulta Escalar)
+-- Objetivo: Mostrar los métodos de pago que han generado una recaudación total 
+-- superior a lo que se recaudó exclusivamente pagando en 'Efectivo'.
+=========================================================================
+*/
+SELECT 
+    v.metodo_pago                                           AS [Metodo_de_Pago],
+    COUNT(DISTINCT v.cod_venta)                             AS [Cantidad_Ventas],
+    COUNT(DISTINCT v.cod_vendedor)                          AS [Vendedores_Involucrados],
+    ROUND(SUM(dv.cant_comprada * dv.precio_unitario), 2)    AS [Total_Recaudado]
+FROM Venta AS v
+INNER JOIN Detalle_venta AS dv 
+    ON v.cod_venta = dv.cod_venta
+INNER JOIN Vendedor AS vend 
+    ON v.cod_vendedor = vend.cod_vendedor
+GROUP BY 
+    v.metodo_pago
+HAVING SUM(dv.cant_comprada * dv.precio_unitario) > (
+    -- Subconsulta Escalar: Calcula la recaudación total solo para el método 'Efectivo'
+    SELECT SUM(dv_sub.cant_comprada * dv_sub.precio_unitario)
+    FROM Venta AS v_sub
+    INNER JOIN Detalle_venta AS dv_sub 
+        ON v_sub.cod_venta = dv_sub.cod_venta
+    WHERE v_sub.metodo_pago = 'Efectivo'
+)
+ORDER BY [Total_Recaudado] DESC;
+GO
