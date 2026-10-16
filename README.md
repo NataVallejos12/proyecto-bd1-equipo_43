@@ -30,9 +30,9 @@ proyecto-bd1-equipo_43/
 │   │  ├──[Script DDL](sql/ddl/crear_bd.sql)<br>
 │   │  ├──[Script DML](sql/dml/datos_prueba.sql) <br>
 │   ├── etapa-04/<br>
-│   │  ├── Factura/Comprobante<br>
-│   │  ├── Reporte Agregado<br>
-│   │  ├── Consulta de Negocio Avanzada<br>
+│   │  ├── [Comprobante de Venta](sql/consultas/comprobante_venta.sql)<br>
+│   │  ├── [Consulta de Negocio Avanzada](sql/consultas/consulta_avanzada.sql) <br>
+│   │  ├── [Informe de Venta](sql/consultas/informe_ventas.sql)<br>
 │   └── etapa-05/<br>
 │   │  ├──Descripción breve<br>
 │   │  ├──Script SQL de implementación<br>
