@@ -96,3 +96,8 @@ CREATE TABLE Pedido(
   CONSTRAINT FK_PEDIDO_PROVEEDOR FOREIGN KEY (cuit) REFERENCES Proveedor(cuit),
   CONSTRAINT FK_PEDIDO_PRODUCTO FOREIGN KEY (cod_producto) REFERENCES Producto(cod_producto)
 );
+
+CREATE UNIQUE NONCLUSTERED INDEX UQ_nro_receta_no_nulo
+ON Venta(nro_receta)
+WHERE nro_receta IS NOT NULL;
+GO
