@@ -49,36 +49,40 @@ El sistema farmacia podra gestionar :
 ---
 ## 📂 Estructura del repositorio
 
-- **proyecto-bd1-equipo-XX/**
-  - 📁 **docs/**
-    - 📁 **etapa-01/**
-      - 📄 [Descripción del caso](docs/etapa-01/descripcion-caso.md)
-      - 📄 [Reglas de negocio](docs/etapa-01/reglas-negocio.md)
-    - 📁 **etapa-02/**
-      - 🖼️ [Diagrama Entidad-Relación (DER)](docs/etapa-02/der/der.png)
-      - 📄 [Modelo relacional](docs/etapa-02/modelo-relacional.md)
-      - 📄 [Normalización](docs/etapa-02/normalizacion.md)
-    - 📁 **etapa-03/**
-      - 📄 [Script DDL](sql/ddl/crear_bd.sql)
-      - 📄 [Script DML](sql/dml/datos_prueba.sql)
-    - 📁 **etapa-04/**
-      - 📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)
-      - 📄 [Consulta de negocio avanzada](sql/consultas/consulta_avanzada.sql)
-      - 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)
-    - 📁 **etapa-05/**
-      - 📄 [Descripción breve](docs/etapa-05/descripcion-breve.md)
-      - 📄 [Script SQL de implementación](sql/tecnico/implementacion.sql)
-      - 📄 [Resumen explicativo](docs/etapa-05/resumen-explicativo.md)
-      - 📄 [Temas técnicos](docs/etapa-05/temas-tecnicos.md)
-  - 📁 **sql/**
-    - 📁 **ddl/**
-      - 📄 [Crear BD](sql/ddl/crear_bd.sql)
-    - 📁 **dml/**
-      - 📄 [Datos de prueba](sql/dml/datos_prueba.sql)
-    - 📁 **consultas/**
-      - 📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)
-      - 📄 [Consulta avanzada](sql/consultas/consulta_avanzada.sql)
-      - 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)
-    - 📁 **tecnico/**
-      - 📄 [Implementación](sql/tecnico/implementacion.sql)
-  - 📄 README.md
+**proyecto-bd1-equipo-XX/**
+  │
+  ├──📁 **docs/**
+  │   ├──📁 **etapa-01/**
+  │   │   ├── 📄 [Descripción del caso](docs/etapa-01/descripcion-caso.md)
+  │   │   └──📄 [Reglas de negocio](docs/etapa-01/reglas-negocio.md)
+  │   │
+  │   ├── 📁 **etapa-02/**
+  │   │   ├── 🖼️ [Diagrama Entidad-Relación (DER)](docs/etapa-02/der/der.png)
+  │   │   ├──📄 [Modelo relacional](docs/etapa-02/modelo-relacional.md)
+  │   │   └──📄 [Normalización](docs/etapa-02/normalizacion.md)
+  │   │  
+  │   ├── 📁 **etapa-03/**
+  │   │   ├── 📄 [Script DDL](sql/ddl/crear_bd.sql)
+  │   │   └── 📄 [Script DML](sql/dml/datos_prueba.sql)
+  │   │ 
+  │   ├──  📁 **etapa-04/**
+  │   │   ├──📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)
+  │   │   ├──📄 [Consulta de negocio avanzada](sql/consultas/consulta_avanzada.sql)
+  │   │   └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)
+  │   │ 
+  │   ├── 📁 **etapa-05/**
+  │   │   ├──📄 [Descripción breve](docs/etapa-05/descripcion-breve.md)
+  │   │   ├──📄 [Script SQL de implementación](sql/tecnico/implementacion.sql)
+  │   │   ├──📄 [Resumen explicativo](docs/etapa-05/resumen-explicativo.md)
+  │   │   └──📄 [Temas técnicos](docs/etapa-05/temas-tecnicos.md)
+  │   │ 
+  │   ├── 📁 **sql/**
+  │   │   ├── 📁 **ddl/**
+  │   │   └──📄 [Crear BD](sql/ddl/crear_bd.sql)
+  │   ├── 📁 **dml/**
+  │   │   └── 📄 [Datos de prueba](sql/dml/datos_prueba.sql)
+  │   ├──📁 **consultas/**
+  │   │   ├── 📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)
+  │   │   ├── 📄 [Consulta avanzada](sql/consultas/consulta_avanzada.sql)
+  │   │   └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)
+  └──📄 README.md
