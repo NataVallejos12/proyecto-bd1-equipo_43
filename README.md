@@ -62,6 +62,11 @@ En esta etapa se busca identificar al sistema con su descripcion del caso y las 
 
 ---
 
+### Etapa 2 - Modelo Logico Conceptual
+En esta etapa se busca pasar de la descripcion del caso de manera conceptual a diagramarlo en un modelo de entidad Relacion.
+| Documento | Descripcion |
+|---|---|
+|     [Descripción del caso](docs/etapa-01/descripcion-caso.md)|Descripcion del caso|
 
 
 
@@ -70,12 +75,12 @@ En esta etapa se busca identificar al sistema con su descripcion del caso y las 
 
 ## 📂 Estructura del repositorio
 
-**proyecto-bd1-equipo-XX/**
+**proyecto-bd1-equipo-XX/**<br>
   │<br>
   ├──📁 **docs/**<br>
   │   ├──📁 **etapa-01/**<br>
   │   │   ├── 📄 [Descripción del caso](docs/etapa-01/descripcion-caso.md)<br>
-  │   │   └──📄 [Reglas de negocio](docs/etapa-01/reglas-negocio.md)
+  │   │   └──📄 [Reglas de negocio](docs/etapa-01/reglas-negocio.md)<br>
   │   │<br>
   │   ├── 📁 **etapa-02/**<br>
   │   │   ├──🖼️ [Diagrama Entidad-Relación (DER)](docs/etapa-02/der/der.png)<br>
