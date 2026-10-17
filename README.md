@@ -47,11 +47,31 @@ El sistema farmacia podra gestionar :
 |     Proveedores y Compras    | Mantenimiento de Informacion y Generacion de pedidos |
 
 ---
+## Documentacion
+Toda la documentacion de este proyecto se encuentra organizada por etapas en la carpeta [docs/](docs).
+
+---
+### Etapa 01- Requirimientos
+En esta etapa se busca identificar al sistema con su descripcion del caso y las reglas de negocio que definen la organizacion de la Farmacia.
+| Documento | Descripcion |
+|---|---|
+|     [Descripción del caso](docs/etapa-01/descripcion-caso.md)|Descripcion del caso|
+| [Alcance del proyecto](docs/etapa-01/alcance.md) | Define los limites del sistema enfocadada en DER  |
+| [Decisiones de Diseño](docs/etapa-01/decisiones-diseño.md) | Desiciones del grupo para el sistema  |
+| [Reglas de negocio](docs/etapa-01/reglas-negocio.md) | Consideraciones o reglas del sistema |
+
+---
+
+
+
+
+
+
 
 ## 📂 Estructura del repositorio
 
 **proyecto-bd1-equipo-XX/**
-  │
+  │<br>
   ├──📁 **docs/**<br>
   │   ├──📁 **etapa-01/**<br>
   │   │   ├── 📄 [Descripción del caso](docs/etapa-01/descripcion-caso.md)<br>
