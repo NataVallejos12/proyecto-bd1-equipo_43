@@ -56,27 +56,27 @@ El sistema farmacia podra gestionar :
   │   ├──📁 **etapa-01/**<br>
   │   │   ├── 📄 [Descripción del caso](docs/etapa-01/descripcion-caso.md)<br>
   │   │   └──📄 [Reglas de negocio](docs/etapa-01/reglas-negocio.md)
-  │   │
+  │   │<br>
   │   ├── 📁 **etapa-02/**<br>
-  │   │   ├── 🖼️ [Diagrama Entidad-Relación (DER)](docs/etapa-02/der/der.png)<br>
+  │   │   ├──🖼️ [Diagrama Entidad-Relación (DER)](docs/etapa-02/der/der.png)<br>
   │   │   ├──📄 [Modelo relacional](docs/etapa-02/modelo-relacional.md)<br>
   │   │   └──📄 [Normalización](docs/etapa-02/normalizacion.md)<br>
-  │   │  
+  │   │<br>  
   │   ├── 📁 **etapa-03/**<br>
   │   │   ├── 📄 [Script DDL](sql/ddl/crear_bd.sql)<br>
   │   │   └── 📄 [Script DML](sql/dml/datos_prueba.sql)<br>
-  │   │ 
+  │   │ <br>
   │   ├──  📁 **etapa-04/**<br>
   │   │   ├──📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)<br>
   │   │   ├──📄 [Consulta de negocio avanzada](sql/consultas/consulta_avanzada.sql)<br>
   │   │   └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)<br>
-  │   │ 
+  │   │ <br>
   │   ├── 📁 **etapa-05/**<br>
   │   │   ├──📄 [Descripción breve](docs/etapa-05/descripcion-breve.md)<br>
   │   │   ├──📄 [Script SQL de implementación](sql/tecnico/implementacion.sql)<br>
   │   │   ├──📄 [Resumen explicativo](docs/etapa-05/resumen-explicativo.md)<br>
   │   │   └──📄 [Temas técnicos](docs/etapa-05/temas-tecnicos.md)<br>
-  │   │ 
+  │   │ <br>
   │   ├── 📁 **sql/**<br>
   │   │   ├── 📁 **ddl/**<br>
   │   │   └──📄 [Crear BD](sql/ddl/crear_bd.sql)<br>
@@ -85,6 +85,6 @@ El sistema farmacia podra gestionar :
   │   ├──📁 **consultas/**<br>
   │   │   ├── 📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)<br>
   │   │   ├── 📄 [Consulta avanzada](sql/consultas/consulta_avanzada.sql)<br>
-  │   │   └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)<br>
+  │   └──  └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)<br>
   └──📄 README.md<br>
 
