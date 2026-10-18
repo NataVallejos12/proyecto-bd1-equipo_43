@@ -81,8 +81,8 @@ En esta etapa llevamos los datos de nuestro sistema a una implementación físic
 
 ---
 ### Etapa 4 - Consultas
-En esta etapa hacemos manejo de de la informacion de del sistema.Realizando consultas para obtener  respuestas a necesidades concretas de información del negocio.
-Esta tabla maneja archivos que estan en la carpeta docs/ que a su vez trabajaba con la carpeta sql/ donde se ve la implementacion de las [consultas](sql/consultas).
+En esta etapa hacemos manejo de la informacion de del sistema. Realizando consultas para obtener  respuestas a necesidades concretas del negocio.<br>
+Esta tabla maneja archivos que estan en la carpeta [docs/](docs) que a su vez trabajaba con la carpeta [sql/](sql) donde se ve la implementacion de las [consultas](sql/consultas).
 | Documento | Descripcion |
 |---|---|
 |[Comprobante de venta](sql/consultas/comprobante_venta.sql)| Detalles de venta y estrategia implementada |
