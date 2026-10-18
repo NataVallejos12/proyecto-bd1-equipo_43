@@ -62,7 +62,7 @@ En esta etapa se busca identificar al sistema con su descripcion del caso y las 
 
 ---
 
-### Etapa 2 - Modelo Logico Conceptual
+### Etapa 02 - Modelo Logico Conceptual
 En esta etapa se busca pasar de la descripcion del caso de manera conceptual a diagramarlo en un modelo de entidad Relacion.
 | Documento | Descripcion |
 |---|---|
@@ -71,7 +71,7 @@ En esta etapa se busca pasar de la descripcion del caso de manera conceptual a d
 |[Normalizacion](docs/etapa-02/normalizacion.md)|Proceso de organizacion de los datos|
 
 ---
-### Etapa 3 - Modelo Logico Conceptual
+### Etapa 03 - Modelo Logico Conceptual
 En esta etapa llevamos los datos de nuestro sistema a una implementación física mediante lineas de comandos SQL.
 | Documento | Descripcion |
 |---|---|
@@ -80,7 +80,7 @@ En esta etapa llevamos los datos de nuestro sistema a una implementación físic
 |[Restricciones de Integridad](docs/etapa-03/restricciones-integridad.md)|Restricciones y manejo de integridad de los datos |
 
 ---
-### Etapa 4 - Consultas
+### Etapa 04 - Consultas
 En esta etapa hacemos manejo de la informacion de del sistema. Realizando consultas para obtener  respuestas a necesidades concretas del negocio.<br>
 Esta tabla maneja archivos que estan en la carpeta [docs/](docs) que a su vez trabajaba con la carpeta [sql/](sql) donde se ve la implementacion de las [consultas](sql/consultas).
 | Documento | Descripcion |
