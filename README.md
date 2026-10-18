@@ -81,7 +81,8 @@ En esta etapa llevamos los datos de nuestro sistema a una implementación físic
 
 ---
 ### Etapa 4 - Consultas
-En esta etapa hacemos manejo de de la informacion de del sistema.Realizando consultas para obtener  responder necesidades concretas de información del negocio.
+En esta etapa hacemos manejo de de la informacion de del sistema.Realizando consultas para obtener  respuestas a necesidades concretas de información del negocio.
+Esta tabla maneja archivos que estan en la carpeta docs/ que a su vez trabajaba con la carpeta sql/ donde se ve la implementacion de las [consultas](sql/consultas).
 | Documento | Descripcion |
 |---|---|
 |[Comprobante de venta](sql/consultas/comprobante_venta.sql)| Detalles de venta y estrategia implementada |
@@ -92,43 +93,43 @@ En esta etapa hacemos manejo de de la informacion de del sistema.Realizando cons
 
 ## 📂 Estructura del repositorio
 
-**proyecto-bd1-equipo-XX/**<br>
-  │<br>
-  ├──📁 **docs/**<br>
-  │   ├──📁 **etapa-01/**<br>
-  │   │   ├── 📄 [Descripción del caso](docs/etapa-01/descripcion-caso.md)<br>
-  │   │   └──📄 [Reglas de negocio](docs/etapa-01/reglas-negocio.md)<br>
-  │   │<br>
-  │   ├── 📁 **etapa-02/**<br>
-  │   │   ├──
-  │   │   ├──🖼️ [Diagrama Entidad-Relación (DER)](docs/etapa-02/der/der.png)<br>
-  │   │   ├──📄 [Modelo relacional](docs/etapa-02/modelo-relacional.md)<br>
-  │   │   └──📄 [Normalización](docs/etapa-02/normalizacion.md)<br>
-  │   │<br>  
-  │   ├── 📁 **etapa-03/**<br>
-  │   │   ├── 📄 [Implementacion](docs/etapa-03/implementación.md) <br>
-  │   │   ├── 📄 [Pruebas Validacion](docs/etapa-03/pruebas-validacion.md) <br>
-  │   │   └── 📄 [Restricciones de Integridad](docs/etapa-03/restricciones-integridad.md)<br>
-  │   │ <br>
-  │   ├──  📁 **etapa-04/**<br>
-  │   │   ├──📄 [Comprobante de venta](docs/etapa-04/comprobante-venta.md)<br>
-  │   │   ├──📄 [Consulta de negocio avanzada](docs/etapa-04/consulta-avanzada.md)<br>
-  │   │   └──📄 [Informe de ventas](docs/etapa-04/informe-ventas.md)<br>
-  │   │ <br>
-  │   ├── 📁 **etapa-05/**<br>
-  │   │   ├──📄 [Descripción breve](docs/etapa-05/descripcion-breve.md)<br>
-  │   │   ├──📄 [Script SQL de implementación](sql/tecnico/implementacion.sql)<br>
-  │   │   ├──📄 [Resumen explicativo](docs/etapa-05/resumen-explicativo.md)<br>
-  │   │   └──📄 [Temas técnicos](docs/etapa-05/temas-tecnicos.md)<br>
-  │   │ <br>
-  │   ├── 📁 **sql/**<br>
-  │   │   ├── 📁 **ddl/**<br>
-  │   │   └──📄 [Crear BD](sql/ddl/crear_bd.sql)<br>
-  │   ├── 📁 **dml/**<br>
-  │   │   └── 📄 [Datos de prueba](sql/dml/datos_prueba.sql)<br>
-  │   ├──📁 **consultas/**<br>
-  │   │   ├── 📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)<br>
-  │   │   ├── 📄 [Consulta avanzada](sql/consultas/consulta_avanzada.sql)<br>
-  │   └── └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)<br>
-  └──📄 README.md<br>
-
+```
+proyecto-bd1-equipo-43
+  │
+  ├──📁 docs
+  │   ├──📁 etapa-01
+  │   │   ├──📄 Descripción del caso
+  │   │   └──📄 Reglas de negocio
+  │   │
+  │   ├── 📁 etapa-02
+  │   │   ├──🖼️ Diagrama Entidad-Relación (DER)
+  │   │   ├──📄 Modelo relacional
+  │   │   └──📄 Normalización
+  │   │
+  │   ├── 📁 etapa-03
+  │   │   ├── 📄 Implementacion
+  │   │   ├── 📄 Pruebas Validacion
+  │   │   └── 📄 Restricciones de Integridad
+  │   │
+  │   ├──  📁 etapa-04/
+  │   │   ├──📄 Comprobante de venta
+  │   │   ├──📄 Consulta de negocio avanzada
+  │   │   └──📄 Informe de ventas
+  │   │ 
+  │   ├── 📁 etapa-05/
+  │   │   ├──📄 Descripción breve
+  │   │   ├──📄 Script SQL de implementación
+  │   │   ├──📄 Resumen explicativo
+  │   │   └──📄 Temas técnicos
+  │   │ 
+  │   ├── 📁 sql/
+  │   │   ├── 📁 ddl/
+  │   │   └──📄 Crear BD
+  │   ├── 📁 dml/
+  │   │   └── 📄 Datos de prueba
+  │   ├──📁 consultas/
+  │   │   ├── 📄 Comprobante de venta
+  │   │   ├── 📄 Consulta avanzada
+  │   └── └── 📄 Informe de ventas
+  └──📄 README.md
+```
