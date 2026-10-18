@@ -2,7 +2,7 @@
 # Base Datos 1 Gr.43
 Proyecto  Final de Base de Datos 1 Comision3 Gr.43.
 
-## Integrantes
+## 1_Integrantes
 
 <!-- Completar con nombre, apellido y usuario de GitHub de cada integrante -->
 
@@ -14,13 +14,13 @@ Proyecto  Final de Base de Datos 1 Comision3 Gr.43.
 |          ROMANI VALENTINO         | valrom12 |
 |  VALLEJOS AQUINO NATANIEL ADRIEL  | NataVAllejos12 |
 ---
-## Presentacion y Contexto
+## 2_Presentacion y Contexto
 Este proyecto Farmacia es un Sistema que esta diseño para facilitar la gestión y supervisión de ventas de medicamentos o productos de una farmacia
 
 El sistema permitira al farmacéutico un uso eficiente a la base de datos farmacia implementando el manejo de tablas.Para  administrar la comercialización de productos y vencimientos, así como el proceso de reabastecimiento de stock.
 
 ---
-## Problemática
+## 3_Problemática
 Uno de los principales problemas identificados en la Farmacia Sana-Sana es la dificultad para mantener un control preciso y actualizado del stock y de los lotes de los productos. Los productos pueden tener distintos orígenes y destinos: ingresan al inventario a través de los pedidos a proveedores y salen mediante las ventas a clientes.
 
 La falta de un registro integrado puede generar diferencias entre el inventario físico y el registrado. Esto provoca problemas al momento de realizar nuevas ventas, al no saber con certeza qué cantidad hay disponible y de qué lote. También aumenta el riesgo de no reponer a tiempo los productos con poco stock y de vender productos vencidos.
@@ -37,7 +37,7 @@ Además, el sistema conserva el precio unitario de cada producto al momento de r
 
 ---
 
-## Alcance del Sistema 
+## 4_Alcance del Sistema 
 El sistema farmacia podra gestionar :
 | Area | Funcionalidad |
 |---|---|
@@ -47,7 +47,7 @@ El sistema farmacia podra gestionar :
 |     Proveedores y Compras    | Mantenimiento de Informacion y Generacion de pedidos |
 
 ---
-## Documentacion
+## 5_Documentacion
 Toda la documentacion de este proyecto se encuentra organizada por etapas en la carpeta [docs/](docs).
 
 ---
@@ -66,12 +66,29 @@ En esta etapa se busca identificar al sistema con su descripcion del caso y las 
 En esta etapa se busca pasar de la descripcion del caso de manera conceptual a diagramarlo en un modelo de entidad Relacion.
 | Documento | Descripcion |
 |---|---|
-|     [Descripción del caso](docs/etapa-01/descripcion-caso.md)|Descripcion del caso|
+|[Diagrama Entidad Relacion](docs/etapa-02/der/Farmacia_SanaSana_DER.png)|DER del sistema Farmacia|
+|[Modelo Relacional](docs/etapa-02/modelo-relacional.md)|Características estructural y logica de los datos|
+|[Normalizacion](docs/etapa-02/normalizacion.md)|Proceso de organizacion de los datos|
 
+---
+### Etapa 3 - Modelo Logico Conceptual
+En esta etapa llevamos los datos de nuestro sistema a una implementación física mediante lineas de comandos SQL.
+| Documento | Descripcion |
+|---|---|
+|[Implementacion](docs/etapa-03/implementación.md)| Estructura del sistema Farmacia SQL|
+|[Pruebas Validacion](docs/etapa-03/pruebas-validacion.md)|Registros de prueba|
+|[Restricciones de Integridad](docs/etapa-03/restricciones-integridad.md)|Restricciones y manejo de integridad de los datos |
 
+---
+### Etapa 4 - Consultas
+En esta etapa hacemos manejo de de la informacion de del sistema.Realizando consultas para obtener  responder necesidades concretas de información del negocio.
+| Documento | Descripcion |
+|---|---|
+|[Comprobante de venta](sql/consultas/comprobante_venta.sql)| Detalles de venta y estrategia implementada |
+|[Consulta de negocio avanzada](docs/etapa-04/consulta-avanzada.md)|Detalla el uso de consultas relacionando mas tablas|
+|[Informe de ventas](docs/etapa-04/informe-ventas.md)|Resuelve la venta por categoria o por vendedor en fecha|
 
-
-
+---
 
 ## 📂 Estructura del repositorio
 
@@ -83,18 +100,20 @@ En esta etapa se busca pasar de la descripcion del caso de manera conceptual a d
   │   │   └──📄 [Reglas de negocio](docs/etapa-01/reglas-negocio.md)<br>
   │   │<br>
   │   ├── 📁 **etapa-02/**<br>
+  │   │   ├──
   │   │   ├──🖼️ [Diagrama Entidad-Relación (DER)](docs/etapa-02/der/der.png)<br>
   │   │   ├──📄 [Modelo relacional](docs/etapa-02/modelo-relacional.md)<br>
   │   │   └──📄 [Normalización](docs/etapa-02/normalizacion.md)<br>
   │   │<br>  
   │   ├── 📁 **etapa-03/**<br>
-  │   │   ├── 📄 [Script DDL](sql/ddl/crear_bd.sql)<br>
-  │   │   └── 📄 [Script DML](sql/dml/datos_prueba.sql)<br>
+  │   │   ├── 📄 [Implementacion](docs/etapa-03/implementación.md) <br>
+  │   │   ├── 📄 [Pruebas Validacion](docs/etapa-03/pruebas-validacion.md) <br>
+  │   │   └── 📄 [Restricciones de Integridad](docs/etapa-03/restricciones-integridad.md)<br>
   │   │ <br>
   │   ├──  📁 **etapa-04/**<br>
-  │   │   ├──📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)<br>
-  │   │   ├──📄 [Consulta de negocio avanzada](sql/consultas/consulta_avanzada.sql)<br>
-  │   │   └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)<br>
+  │   │   ├──📄 [Comprobante de venta](docs/etapa-04/comprobante-venta.md)<br>
+  │   │   ├──📄 [Consulta de negocio avanzada](docs/etapa-04/consulta-avanzada.md)<br>
+  │   │   └──📄 [Informe de ventas](docs/etapa-04/informe-ventas.md)<br>
   │   │ <br>
   │   ├── 📁 **etapa-05/**<br>
   │   │   ├──📄 [Descripción breve](docs/etapa-05/descripcion-breve.md)<br>
@@ -110,6 +129,6 @@ En esta etapa se busca pasar de la descripcion del caso de manera conceptual a d
   │   ├──📁 **consultas/**<br>
   │   │   ├── 📄 [Comprobante de venta](sql/consultas/comprobante_venta.sql)<br>
   │   │   ├── 📄 [Consulta avanzada](sql/consultas/consulta_avanzada.sql)<br>
-  │   └──  └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)<br>
+  │   └── └── 📄 [Informe de ventas](sql/consultas/informe_ventas.sql)<br>
   └──📄 README.md<br>
 
