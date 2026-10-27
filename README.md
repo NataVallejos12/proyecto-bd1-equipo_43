@@ -90,7 +90,15 @@ Esta tabla maneja archivos que estan en la carpeta [docs/](docs) que a su vez tr
 |[Informe de ventas](docs/etapa-04/informe-ventas.md)|Resuelve la venta por categoria o por vendedor en fecha|
 
 ---
+### Etapa 05 - Procedimientos, Funciones, Transacciones y Auditoría
+En esta etapa incorporamos herramientas para facilitar las operaciones de la base de datos, mantener la información consistente y registrar los cambios realizados en el sistema.
+| Documento | Descripcion |
+|---|---|
+|[Procedimientos y funciones](docs/etapa-05/procedimientos_funciones)|Explica la implementación de funciones y procedimientos para realizar operaciones habituales de la base de datos.|
+|[Transacciones](docs/etapa-05/transacciones)|Detalla cómo se realizan operaciones relacionadas garantizando que los cambios se guarden correctamente o se deshagan ante un error.|
+|[Triggers y auditoría](docs/etapa-05/triggers_auditoria)|Describe el registro automático de modificaciones realizadas en la base de datos.|
 
+---
 ## 📂 Estructura del repositorio
 
 ```
