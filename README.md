@@ -117,10 +117,18 @@ proyecto-bd1-equipo-43
   │   │   └──📄 Informe de ventas
   │   │ 
   │   ├── 📁 etapa-05/
-  │   │   ├──📄 Descripción breve
-  │   │   ├──📄 Script SQL de implementación
-  │   │   ├──📄 Resumen explicativo
-  │   │   └──📄 Temas técnicos
+  │   │   ├── 📁 procedimientos_funciones/
+  │   │   │    ├──📄 Investigacion
+  │   │   │    ├──📄 Script SQL
+  │   │   │    └── 📁 Evidencias/
+  │   │   ├── 📁 transacciones/
+  │   │   │    ├──📄 Investigacion
+  │   │   │    ├──📄 Script SQL
+  │   │   │    └── 📁 Evidencias/
+  │   │   ├── 📁 triggers_auditoria/
+  │   │   │    ├──📄 Investigacion
+  │   │   │    ├──📄 Script SQL
+  │   │   └──  └── 📁 Evidencias/
   │   │ 
   │   ├── 📁 sql/
   │   │   ├── 📁 ddl/
