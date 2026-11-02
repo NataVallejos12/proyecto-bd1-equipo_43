@@ -42,6 +42,7 @@ Para realizar esta práctica se utilizan dos archivos SQL:
 
 | Archivo | ¿Qué contiene? |
 |---|---|
+
 | [5_indices_implementacion.sql](sql/tecnico/Indices_EtapaV/indice_implementacion.sql) | Crea la tabla de prueba, el procedimiento para cargar registros y los índices que se utilizarán en las tablas reales del sistema. |
 | [5_indices_demostracion.sql](sql/tecnico/Indices_EtapaV/indice_demostracion.sql) | Ejecuta la carga de datos y realiza las pruebas para comparar el rendimiento de las consultas. |
 
@@ -290,6 +291,7 @@ No colocar valores estimados ni inventados.
 ### 6.2. Capturas de pantalla
 
 Guardar en la carpeta "evidencias/" las capturas obtenidas desde SQL Server Management Studio.
+
 
 - [evidencia_sin_indice]( docs/etapa-05/optimizacion de consultas/Evidencias/evidencia_sin_indice.md ): plan de ejecución y mensajes de la consulta sin índice.
 - [evidencia_indice_agrupado](docs/etapa-05/optimizacion de consultas/Evidencias/evidencia_indice_agrupado.md): plan de ejecución y mensajes con el índice agrupado.
