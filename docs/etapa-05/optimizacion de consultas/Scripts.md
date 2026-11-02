@@ -8,7 +8,7 @@ En esta etapa se trabaja con la optimización de consultas en SQL Server mediant
 
 Este script prepara una tabla de ventas históricas para realizar pruebas de rendimiento y permite generar una gran cantidad de registros de prueba. También contiene la creación de índices en distintas tablas del sistema, con el objetivo de mejorar el acceso a los datos y optimizar las consultas.
 
-[📄 Acceder al script de implementación](sql/tecnico/Indices_EtapaV/indice_implementacion.sql)
+[Acceder al script de implementación](sql/tecnico/Indices_EtapaV/indice_implementacion.sql)
 
 ### 2. Demostración de índices
 
@@ -18,4 +18,4 @@ Este script permite comprobar cómo influye el uso de índices en el rendimiento
 
 Además, permite observar los planes de ejecución y comparar diferentes métricas, como los tiempos de ejecución y las lecturas realizadas por SQL Server.
 
-[📄 Acceder al script de demostración](sql/tecnico/Indices_EtapaV/indice_demostracion.sql)
+[Acceder al script de demostración](sql/tecnico/Indices_EtapaV/indice_demostracion.sql)
