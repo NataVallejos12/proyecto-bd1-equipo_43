@@ -291,10 +291,11 @@ No colocar valores estimados ni inventados.
 
 Guardar en la carpeta "evidencias/" las capturas obtenidas desde SQL Server Management Studio.
 
-
-[evidencia_sin_indice]( docs/etapa-05/optimizacion de consultas/Evidencias/evidencia_sin_indice.md ): plan de ejecución y mensajes de la consulta sin índice.
-[evidencia_indice_agrupado](docs/etapa-05/optimizacion de consultas/Evidencias/evidencia_indice_agrupado.md): plan de ejecución y mensajes con el índice agrupado.
-[evidencia_indice_cobertura](docs/etapa-05/optimizacion de consultas/Evidencias/evidencia_indice_cobertura.md): plan de ejecución y mensajes con el índice no agrupado de cobertura.
+|Capturas de evidencia|Detalle|
+|---|---|
+|[Evidencia_sin_indice]( docs/etapa-05/optimizacion de consultas/Evidencias/evidencia_sin_indice.md )|Plan de ejecución y mensajes de la consulta sin índice |
+|[Evidencia_indice_agrupado](docs/etapa-05/optimizacion de consultas/Evidencias/evidencia_indice_agrupado.md)| Plan de ejecución y mensajes con el índice agrupado|
+|[Evidencia_indice_cobertura](docs/etapa-05/optimizacion de consultas/Evidencias/evidencia_indice_cobertura.md)| Plan de ejecución y mensajes con el índice no agrupado de cobertura|
 
 Las capturas deben permitir identificar el operador utilizado y las métricas obtenidas.
 
