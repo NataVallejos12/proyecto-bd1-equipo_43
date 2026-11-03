@@ -1,1 +1,26 @@
+Se cargó un codigo de prueba para comprobar la funcionalidad de los triggers como evidencia
 
+"USE Farmacia_SanaSana;
+GO
+
+-- Ejecuta un UPDATE para cambiar el precio y usar el trigger
+UPDATE Producto 
+SET precio_unitario = 3500.00 
+WHERE cod_producto = 1;
+
+-- Consulta la tabla de auditoría para verificar que el registro se guardó automáticamente
+PRINT '--- RESULTADO DE LA AUDITORÍA ---';
+SELECT * FROM Auditoria_Producto;
+GO
+
+
+-- Intenta eliminar un comprobante de venta existente (Venta 1)
+PRINT '--- INTENTO DE BORRADO ---';
+DELETE FROM Venta WHERE cod_venta = 1;
+
+-- Verifica que la Venta 1 sigue existiendo en la tabla porque el trigger hizo ROLLBACK
+PRINT '--- VERIFICACIÓN DE VENTA ---';
+SELECT cod_venta, fecha_venta, metodo_pago 
+FROM Venta 
+WHERE cod_venta = 1;
+GO"
