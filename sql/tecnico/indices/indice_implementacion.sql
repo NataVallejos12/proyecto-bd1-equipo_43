@@ -1,4 +1,4 @@
-  /* =========================================================================
+ /* =========================================================================
  ETAPA V - TEMA 5: OPTIMIZACIÓN DE CONSULTAS A TRAVÉS DE ÍNDICES
    Proyecto: Farmacia Sana-Sana (Equipo 43)
    Motor: SQL Server 2019 / 2022 (Express)
