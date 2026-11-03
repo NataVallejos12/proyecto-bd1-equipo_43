@@ -1,16 +1,16 @@
 # Tema 1: Procedimientos y funciones almacenadas
 
-**Proyecto:** Farmacia Sana-Sana (Equipo 43) · 
+**Proyecto:** Farmacia Sana-Sana (Equipo 43) · **Motor:** SQL Server 2019/2022 Express
 **Responsable del tema:** Vallejos Aquino Nátaniel Adriel
 
 **Scripts del tema**
 
 | Archivo | Para qué sirve |
 |---|---|
-| [`sql/tecnico/funciones/funciones.sql`](../../sql/tecnico/funciones/funciones.sql) | Implementación: crea las 4 funciones |
-| [`sql/tecnico/procedimientos/procedimientos.sql`](../../sql/tecnico/procedimientos/procedimientos.sql) | Implementación: crea los 3 procedimientos (ABM de Producto) |
-| [`sql/tecnico/funciones/demostracion_funciones.sql`](../../sql/tecnico/funciones/demostracion_funciones.sql) | Demostración de las funciones (no modifica datos) |
-| [`sql/tecnico/procedimientos/demostracion_procedimientos.sql`](../../sql/tecnico/procedimientos/demostracion_procedimientos.sql) | Demostración de los procedimientos (al final deja la base como estaba) |
+| [`sql/tecnico/funciones/funciones.sql`](../../../sql/tecnico/funciones/funciones.sql) | Implementación: crea las 4 funciones |
+| [`sql/tecnico/procedimientos/procedimientos.sql`](../../../sql/tecnico/procedimientos/procedimientos.sql) | Implementación: crea los 3 procedimientos (ABM de Producto) |
+| [`sql/tecnico/funciones/demostracion_funciones.sql`](../../../sql/tecnico/funciones/demostracion_funciones.sql) | Demostración de las funciones (no modifica datos) |
+| [`sql/tecnico/procedimientos/demostracion_procedimientos.sql`](../../../sql/tecnico/procedimientos/demostracion_procedimientos.sql) | Demostración de los procedimientos (al final deja la base como estaba) |
 
 ---
 
@@ -178,28 +178,28 @@ Resultados obtenidos en SQL Server 2022:
 
 ### Evidencias
 
-Capturas de la ejecución en SSMS (carpeta [`evidencias/procedimientos-funciones/`](evidencias/procedimientos-funciones/)):
+Capturas de la ejecución en SSMS (carpeta [`evidencias/`](evidencias/)):
 
 | Prueba | Captura |
 |---|---|
-| Las 4 funciones y los 3 procedimientos en el Explorador de objetos | ![Las 4 funciones y los 3 procedimientos en el Explorador de objetos](evidencias/procedimientos-funciones/01_objetos_creados.png) |
-| 1.a Edad exacta de todas las personas dentro de un SELECT | ![1.a Edad exacta de todas las personas dentro de un SELECT](evidencias/procedimientos-funciones/02a_fn_edad_todas.png) |
-| 1.b DNI inexistente: devuelve NULL | ![1.b DNI inexistente: devuelve NULL](evidencias/procedimientos-funciones/02b_fn_edad_dni_inexistente.png) |
-| 1.c DATEDIFF da 26 y la edad exacta es 25 | ![1.c DATEDIFF da 26 y la edad exacta es 25](evidencias/procedimientos-funciones/02c_fn_edad_vs_datediff.png) |
-| 2. Stock del producto 1 (61) y del 999 (NULL) | ![2. Stock del producto 1 (61) y del 999 (NULL)](evidencias/procedimientos-funciones/03a_fn_stock.png) |
-| 3. Subtotal: casos normales y valores inválidos (NULL) | ![3. Subtotal: casos normales y valores inválidos (NULL)](evidencias/procedimientos-funciones/03b_fn_subtotal.png) |
-| 3. Subtotal de cada línea de la venta 9 | ![3. Subtotal de cada línea de la venta 9](evidencias/procedimientos-funciones/03c_fn_subtotal_venta9.png) |
-| 4. Descuento por cliente: 10 %, 5 % y 0 % | ![4. Descuento por cliente: 10 %, 5 % y 0 %](evidencias/procedimientos-funciones/04_fn_descuento_cliente.png) |
-| 5.a Alta correcta del producto 100 | ![5.a Alta correcta del producto 100](evidencias/procedimientos-funciones/05a_sp_insertar_alta.png) |
-| 5.b Precio cero: error 50001 | ![5.b Precio cero: error 50001](evidencias/procedimientos-funciones/05b_sp_insertar_precio_cero.png) |
-| 5.c Nombre vacío: error 50003 | ![5.c Nombre vacío: error 50003](evidencias/procedimientos-funciones/05c_sp_insertar_nombre_vacio.png) |
-| 5.d Código repetido: error 2627 de la PK | ![5.d Código repetido: error 2627 de la PK](evidencias/procedimientos-funciones/05d_sp_insertar_codigo_repetido.png) |
-| 6.a Precio 1650.00 y stock 25 | ![6.a Precio 1650.00 y stock 25](evidencias/procedimientos-funciones/06a_sp_modificar_ok.png) |
-| 6.b Producto inexistente: error 50006 | ![6.b Producto inexistente: error 50006](evidencias/procedimientos-funciones/06b_sp_modificar_inexistente.png) |
-| 6.c Stock negativo: error 50005 | ![6.c Stock negativo: error 50005](evidencias/procedimientos-funciones/06c_sp_modificar_stock_negativo.png) |
-| 7.a Producto con ventas: error 547 de la FK | ![7.a Producto con ventas: error 547 de la FK](evidencias/procedimientos-funciones/07a_sp_borrar_con_ventas.png) |
-| 7.b Producto inexistente: error 50007 | ![7.b Producto inexistente: error 50007](evidencias/procedimientos-funciones/07b_sp_borrar_inexistente.png) |
-| 7.c Baja del producto 100: la base queda como estaba | ![7.c Baja del producto 100: la base queda como estaba](evidencias/procedimientos-funciones/07c_sp_borrar_ok.png) |
+| Las 4 funciones y los 3 procedimientos en el Explorador de objetos | ![Las 4 funciones y los 3 procedimientos en el Explorador de objetos](evidencias/01_objetos_creados.png) |
+| 1.a Edad exacta de todas las personas dentro de un SELECT | ![1.a Edad exacta de todas las personas dentro de un SELECT](evidencias/02a_fn_edad_todas.png) |
+| 1.b DNI inexistente: devuelve NULL | ![1.b DNI inexistente: devuelve NULL](evidencias/02b_fn_edad_dni_inexistente.png) |
+| 1.c DATEDIFF da 26 y la edad exacta es 25 | ![1.c DATEDIFF da 26 y la edad exacta es 25](evidencias/02c_fn_edad_vs_datediff.png) |
+| 2. Stock del producto 1 (61) y del 999 (NULL) | ![2. Stock del producto 1 (61) y del 999 (NULL)](evidencias/03a_fn_stock.png) |
+| 3. Subtotal: casos normales y valores inválidos (NULL) | ![3. Subtotal: casos normales y valores inválidos (NULL)](evidencias/03b_fn_subtotal.png) |
+| 3. Subtotal de cada línea de la venta 9 | ![3. Subtotal de cada línea de la venta 9](evidencias/03c_fn_subtotal_venta9.png) |
+| 4. Descuento por cliente: 10 %, 5 % y 0 % | ![4. Descuento por cliente: 10 %, 5 % y 0 %](evidencias/04_fn_descuento_cliente.png) |
+| 5.a Alta correcta del producto 100 | ![5.a Alta correcta del producto 100](evidencias/05a_sp_insertar_alta.png) |
+| 5.b Precio cero: error 50001 | ![5.b Precio cero: error 50001](evidencias/05b_sp_insertar_precio_cero.png) |
+| 5.c Nombre vacío: error 50003 | ![5.c Nombre vacío: error 50003](evidencias/05c_sp_insertar_nombre_vacio.png) |
+| 5.d Código repetido: error 2627 de la PK | ![5.d Código repetido: error 2627 de la PK](evidencias/05d_sp_insertar_codigo_repetido.png) |
+| 6.a Precio 1650.00 y stock 25 | ![6.a Precio 1650.00 y stock 25](evidencias/06a_sp_modificar_ok.png) |
+| 6.b Producto inexistente: error 50006 | ![6.b Producto inexistente: error 50006](evidencias/06b_sp_modificar_inexistente.png) |
+| 6.c Stock negativo: error 50005 | ![6.c Stock negativo: error 50005](evidencias/06c_sp_modificar_stock_negativo.png) |
+| 7.a Producto con ventas: error 547 de la FK | ![7.a Producto con ventas: error 547 de la FK](evidencias/07a_sp_borrar_con_ventas.png) |
+| 7.b Producto inexistente: error 50007 | ![7.b Producto inexistente: error 50007](evidencias/07b_sp_borrar_inexistente.png) |
+| 7.c Baja del producto 100: la base queda como estaba | ![7.c Baja del producto 100: la base queda como estaba](evidencias/07c_sp_borrar_ok.png) |
 
 ## 6. Conclusiones
 
