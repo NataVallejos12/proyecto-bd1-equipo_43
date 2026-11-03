@@ -57,7 +57,7 @@ Script de pruebas: [`sql/tecnico/transacciones/demostracion_transacciones.sql`](
 ### Prueba 1 — Venta correcta
 Venta 200, producto 2, cantidad 3. Resultado esperado: queda la venta con su línea 1 y el stock baja de 98 a 95.
 
-![Prueba 1](evidencias/prueba1_venta_correcta.jpeg)
+![Prueba 1](evidencias/prueba1_venta_correcta.png.jpeg)
 
 ### Prueba 2 — Stock insuficiente
 Producto 6, cantidad 9999. Resultado esperado: error 50026; no queda venta, detalle ni cambio de stock.
