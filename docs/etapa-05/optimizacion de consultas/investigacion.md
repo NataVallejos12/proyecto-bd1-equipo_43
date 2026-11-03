@@ -42,8 +42,8 @@ Para realizar esta práctica se utilizan dos archivos SQL:
 
 | Archivo | ¿Qué contiene? |
 |---|---|
-| [5_indices_implementacion.sql](sql/tecnico/Indices_EtapaV/indice_implementacion.sql) | Crea la tabla de prueba, el procedimiento para cargar registros y los índices que se utilizarán en las tablas reales del sistema. |
-| [5_indices_demostracion.sql](sql/tecnico/Indices_EtapaV/indice_demostracion.sql) | Ejecuta la carga de datos y realiza las pruebas para comparar el rendimiento de las consultas. |
+| [5_indices_implementacion.sql](sql/tecnico/indices/indice_implementacion.sql) | Crea la tabla de prueba, el procedimiento para cargar registros y los índices que se utilizarán en las tablas reales del sistema. |
+| [5_indices_demostracion.sql](sql/tecnico/indices/indice_demostracion.sql) | Ejecuta la carga de datos y realiza las pruebas para comparar el rendimiento de las consultas. |
 
 ### 3.1. Tabla de prueba y carga masiva
 
