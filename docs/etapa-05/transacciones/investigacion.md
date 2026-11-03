@@ -63,26 +63,31 @@ Venta 200, producto 2, cantidad 3. Resultado esperado: queda la venta con su lí
 Producto 6, cantidad 9999. Resultado esperado: error 50026; no queda venta, detalle ni cambio de stock.
 
 ![Prueba 2](evidencias/prueba2_stock_insuficiente.png)
+![Prueba 2 - mensajes](evidencias/prueba2_mensajes.png)
 
 ### Prueba 3 — Producto inexistente
 Producto 999. Resultado esperado: error 50026; no queda nada registrado.
 
 ![Prueba 3](evidencias/prueba3_producto_inexistente.png)
+![Prueba 3 - mensajes](evidencias/prueba3_mensajes.png)
 
 ### Prueba 4 — Validaciones de parámetros
 Fecha futura (50020), cliente inexistente (50024), venta repetida (50023) y método de pago inválido (error 547 de la restricción de la tabla). No queda nada registrado.
 
 ![Prueba 4](evidencias/prueba4_validaciones.png)
+![Prueba 4 - mensajes](evidencias/prueba4_mensajes.png)
 
 ### Prueba 5 — Venta con varios productos
 La venta 200 queda con tres líneas. La llamada que pide 9999 unidades falla con el error 50026 y solo se deshace esa línea.
 
 ![Prueba 5](evidencias/prueba5_varios_productos.png)
+![Prueba 5 - mensajes](evidencias/prueba5_mensajes.png)
 
 ### Prueba 6 — Contraejemplo sin transacción
 Los mismos pasos sin transacción: el error de stock llega tarde y la venta 204 queda grabada sin detalle.
 
 ![Prueba 6](evidencias/prueba6_sin_transaccion.png)
+![Prueba 6 - mensajes](evidencias/prueba6_mensajes.png)
 
 ## 6. Conclusiones
 
