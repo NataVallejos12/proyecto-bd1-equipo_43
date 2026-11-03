@@ -11,6 +11,7 @@
      2. sp_AgregarProductoAVenta   -> agrega más productos a una venta ya
                                       registrada (resuelve la "línea fija en 1")
 
+ ========================================================================= */
 
 USE Farmacia_SanaSana;
 GO
