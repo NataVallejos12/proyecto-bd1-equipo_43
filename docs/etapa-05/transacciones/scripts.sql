@@ -3,8 +3,7 @@
    Proyecto: Farmacia Sana-Sana (Equipo 43)
    Motor: SQL Server 2019 / 2022 (Express)
 
-   SCRIPT DE IMPLEMENTACIÓN (versión corregida según la devolución del
-   profesor). Las pruebas están en demostracion_transacciones.sql.
+   SCRIPT DE IMPLEMENTACIÓN. Las pruebas están en demostracion_transacciones.sql.
 
    Contenido:
      1. sp_RegistrarVentaCompleta  -> encabezado + detalle + stock como UNA
