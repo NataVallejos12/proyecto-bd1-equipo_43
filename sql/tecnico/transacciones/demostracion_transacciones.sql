@@ -57,10 +57,10 @@ SELECT (SELECT COUNT(*) FROM Venta         WHERE cod_venta = 201) AS ventas_201,
 GO
 
 /* =========================================================================
-   PRUEBA 3 - Producto inexistente (el error que marcó el profesor)
-   Con la versión anterior @stock_actual quedaba NULL, NULL < cantidad no
-   era verdadero y se confirmaba la venta. Ahora: error 50026 y nada se
-   registra.
+   PRUEBA 3 - Producto inexistente
+   El UPDATE condicionado no afecta ninguna fila (@@ROWCOUNT = 0), así que
+   se lanza el error 50026 y el ROLLBACK deshace el encabezado ya insertado.
+   Esperado: error 50026; la venta 202 NO existe.
    ========================================================================= */
 BEGIN TRY
     EXEC dbo.sp_RegistrarVentaCompleta 202, '2026-10-30', 'Efectivo', NULL,
@@ -161,8 +161,6 @@ GO
    LIMPIEZA: borrar las ventas de prueba y restaurar el stock.
    El trigger trg_BloquearBorradoVenta (Tema 3) impide borrar ventas, así
    que el ADMINISTRADOR lo deshabilita un momento y lo vuelve a habilitar.
-   (Por eso, como dice el profesor, el trigger solo no alcanza: también
-   hacen falta permisos, Tema 4, para que nadie más pueda deshabilitarlo.)
    ========================================================================= */
 IF OBJECT_ID('dbo.trg_BloquearBorradoVenta') IS NOT NULL
     DISABLE TRIGGER dbo.trg_BloquearBorradoVenta ON dbo.Venta;
